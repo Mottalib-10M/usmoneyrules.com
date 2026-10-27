@@ -1,0 +1,455 @@
+{
+ "https://www.usps.com/shop/money-orders.htm": {
+  "key": "usps.mo",
+  "hash": "36df9bf7ea2d89f6",
+  "at": "2026-10-27"
+ },
+ "https://pe.usps.com/text/dmm300/Notice123.htm": {
+  "key": "usps.fees",
+  "hash": "92a839c439a9bce0",
+  "at": "2026-10-27"
+ },
+ "https://pe.usps.com/text/dmm300/509.htm": {
+  "key": "usps.dmm",
+  "hash": "04a2602676355442",
+  "at": "2026-10-27"
+ },
+ "https://www.walmart.com/cp/money-orders/5791922": {
+  "key": "walmart.mo",
+  "hash": "2a5b1f5ffb2fd268",
+  "at": "2026-10-27"
+ },
+ "https://www.walmart.com/cp/check-cashing/632047": {
+  "key": "walmart.cash",
+  "hash": "710a6b3457c2a170",
+  "at": "2026-10-27"
+ },
+ "https://www.westernunion.com/blog/en/us/money-orders-at-kroger/": {
+  "key": "kroger.mo",
+  "hash": "9dc949a1a2a721e5",
+  "at": "2026-10-27"
+ },
+ "https://www.westernunion.com/blog/en/us/money-orders-at-publix/": {
+  "key": "publix.mo",
+  "hash": "14cb63ec4c563f3c",
+  "at": "2026-10-27"
+ },
+ "https://www.westernunion.com/us/en/locations/7-eleven.html": {
+  "key": "seven_eleven.mo",
+  "hash": "86cc0eea14cb2c8d",
+  "at": "2026-10-27"
+ },
+ "https://www.westernunion.com/us/en/money-order.html": {
+  "key": "western_union.mo",
+  "hash": "19a277e5b2677fbf",
+  "at": "2026-10-27"
+ },
+ "https://www.westernunion.com/us/en/retail-money-order-terms-and-conditions.html": {
+  "key": "western_union.terms",
+  "hash": "056fdf554ddf9dff",
+  "at": "2026-10-27"
+ },
+ "https://www.westernunion.com/us/en/locations/walgreens.html": {
+  "key": "walgreens.wu",
+  "hash": "31f57a9ba2c97c76",
+  "at": "2026-10-27"
+ },
+ "https://www.moneygram.com/mgo/us/en/m/money-orders": {
+  "key": "moneygram.mo",
+  "hash": "5b1edaff3fe2b6ef",
+  "at": "2026-10-27"
+ },
+ "https://www.moneygram.com/us/en/help-center/faq/services/refund/how-does-the-money-order-refund-process-work": {
+  "key": "moneygram.refund",
+  "hash": "6f527eadab6a5e90",
+  "at": "2026-10-27"
+ },
+ "https://www.moneygram.com/us/en/help-center/faq/services/refund/what-are-processing-fees": {
+  "key": "moneygram.fees",
+  "hash": "458ba36fb4675e67",
+  "at": "2026-10-27"
+ },
+ "https://www.cvs.com/": {
+  "key": "cvs.site",
+  "hash": null
+ },
+ "https://www.dollargeneral.com/services": {
+  "key": "dollar_general.site",
+  "hash": null
+ },
+ "https://www.chase.com/content/dam/chase-ux/documents/personal/checking/ABSF-en.pdf": {
+  "key": "chase.fees",
+  "hash": "23a1602f14368a7a",
+  "at": "2026-10-27"
+ },
+ "https://www.chase.com/content/dam/chase-ux/documents/personal/checking/deposit-account-agreement.pdf": {
+  "key": "chase.daa",
+  "hash": "4a32608225336dba",
+  "at": "2026-10-27"
+ },
+ "https://static.chasecdn.com/content/dam/legal-agreements/library/en/chasenet_la/versions/chasenet_la.pdf": {
+  "key": "chase.zelle",
+  "hash": "5f158394b97cf61c",
+  "at": "2026-10-27"
+ },
+ "https://www.chase.com/digital/mobile-deposits": {
+  "key": "chase.mobile",
+  "hash": "bf4f9d11008de7dc",
+  "at": "2026-10-27"
+ },
+ "https://personal.chase.com/personal/secure-banking": {
+  "key": "chase.secure",
+  "hash": "090b36a92021fd93",
+  "at": "2026-10-27"
+ },
+ "https://www.chase.com/personal/banking/education/basics/cash-a-check-without-a-bank-account": {
+  "key": "chase.nocust",
+  "hash": "86b37ef5dc862363",
+  "at": "2026-10-27"
+ },
+ "https://www.bankofamerica.com/salesservices/deposits/resources/personal-schedule-fees/": {
+  "key": "bank_of_america.fees",
+  "hash": "26e96dc1a59ad4b2",
+  "at": "2026-10-27"
+ },
+ "https://www.bankofamerica.com/online-banking/service-agreement.go": {
+  "key": "bank_of_america.osa",
+  "hash": "9a9011caf25e61d0",
+  "at": "2026-10-27"
+ },
+ "https://www.bankofamerica.com/help/cutoff-times/": {
+  "key": "bank_of_america.cut",
+  "hash": "9b66392294d0def1",
+  "at": "2026-10-27"
+ },
+ "https://info.bankofamerica.com/en/digital-banking/mobile-check-deposit": {
+  "key": "bank_of_america.mobile",
+  "hash": "f6f8aebc8c271443",
+  "at": "2026-10-27"
+ },
+ "https://www.bankofamerica.com/deposits/self-service-atms/": {
+  "key": "bank_of_america.atm",
+  "hash": "35d9fe78ed44cf60",
+  "at": "2026-10-27"
+ },
+ "https://www.bankofamerica.com/salesservices/deposits/resources/deposit-agreements/": {
+  "key": "bank_of_america.dda",
+  "hash": "e398d219152a7a2b",
+  "at": "2026-10-27"
+ },
+ "https://www.wellsfargo.com/mobile-online-banking/service-fees/": {
+  "key": "wells_fargo.fees",
+  "hash": "bf758df5ee7e4942",
+  "at": "2026-10-27"
+ },
+ "https://www.wellsfargo.com/checking/everyday/account-fees-summary/": {
+  "key": "wells_fargo.everyday",
+  "hash": "a680f8b2909a32c5",
+  "at": "2026-10-27"
+ },
+ "https://www.wellsfargo.com/checking/prime/account-fees-summary/": {
+  "key": "wells_fargo.prime",
+  "hash": "844b2113a76d50fe",
+  "at": "2026-10-27"
+ },
+ "https://www.wellsfargo.com/help/online-banking/zelle-faqs/": {
+  "key": "wells_fargo.zelle",
+  "hash": "44dee05abfc65b12",
+  "at": "2026-10-27"
+ },
+ "https://www.wellsfargo.com/help/mobile-features/mobile-deposit-faqs/": {
+  "key": "wells_fargo.mobile",
+  "hash": "ac49bc7ef86a605e",
+  "at": "2026-10-27"
+ },
+ "https://www.wellsfargo.com/checking/early-pay-day/": {
+  "key": "wells_fargo.early",
+  "hash": "25e233ba0ca1a18a",
+  "at": "2026-10-27"
+ },
+ "https://www.citi.com/banking/compare-bank-accounts?Tier=BLUE": {
+  "key": "citibank.fees",
+  "hash": "d9be8a77148c2647",
+  "at": "2026-10-27"
+ },
+ "https://online.citi.com/JRS/forms/ZelleTermsAndConditions.pdf": {
+  "key": "citibank.zelle",
+  "hash": "4c128d56f60b0cd9",
+  "at": "2026-10-27"
+ },
+ "https://www.citi.com/content/dam/cfs/mobile/assets/JRS/popups/ao/CDAA.pdf": {
+  "key": "citibank.cdaa",
+  "hash": "d42598aeff7fecbc",
+  "at": "2026-10-27"
+ },
+ "https://www.usbank.com/dam/en/documents/pdfs/disclosures/consumer-pricing-information.pdf": {
+  "key": "us_bank.fees",
+  "hash": "bad14fa5a765d07d",
+  "at": "2026-10-27"
+ },
+ "https://www.usbank.com/customer-service/knowledge-base/KB0069805.html": {
+  "key": "us_bank.zelle",
+  "hash": "b64027ee42b6972a",
+  "at": "2026-10-27"
+ },
+ "https://www.usbank.com/online-mobile-banking/mobile-check-deposit.html": {
+  "key": "us_bank.mobile",
+  "hash": "426826be7d060ac7",
+  "at": "2026-10-27"
+ },
+ "https://www.usbank.com/customer-service/knowledge-base/KB0075653.html": {
+  "key": "us_bank.atm",
+  "hash": "ce188fa7b315297b",
+  "at": "2026-10-27"
+ },
+ "https://www.pnc.com/content/dam/pnc-com/pdf/personal/Savings/service-charges-standard-savings.pdf": {
+  "key": "pnc.fees",
+  "hash": "b03e2accf0b853af",
+  "at": "2026-10-27"
+ },
+ "https://www.pnc.com/content/dam/pnc-com/pdf/smallbusiness/zelle/zelle-terms-of-use.pdf": {
+  "key": "pnc.zelle",
+  "hash": "008174d253e9eaa7",
+  "at": "2026-10-27"
+ },
+ "https://www.pnc.com/en/personal-banking/banking/online-and-mobile-banking/mobile-banking.html": {
+  "key": "pnc.mobile",
+  "hash": "6dcf8589f1b8db63",
+  "at": "2026-10-27"
+ },
+ "https://www.truist.com/personaldepositsfeeschedule": {
+  "key": "truist.fees",
+  "hash": "19046f71fef1fc8e",
+  "at": "2026-10-27"
+ },
+ "https://www.truist.com/content/dam/truist-bank/us/en/documents/disclosures/banking/bank-services-agreement-privacy-notice.pdf": {
+  "key": "truist.bsa",
+  "hash": "3bc075021d53b5a8",
+  "at": "2026-10-27"
+ },
+ "https://www.truist.com/content/dam/truist-bank/us/en/documents/agreement/online-and-mobile-banking-service-agreement.pdf": {
+  "key": "truist.osa",
+  "hash": "58747b9a84b57e32",
+  "at": "2026-10-27"
+ },
+ "https://www.capitalone.com/bank/disclosures/checking-accounts/online-checking-account/more-info/": {
+  "key": "capital_one.fees",
+  "hash": "35be2f8b7e101dd4",
+  "at": "2026-10-27"
+ },
+ "https://www.capitalone.com/bank/zelle/": {
+  "key": "capital_one.zelle",
+  "hash": "75a03f890c6b9bba",
+  "at": "2026-10-27"
+ },
+ "https://www.capitalone.com/bank/early-paycheck/": {
+  "key": "capital_one.early",
+  "hash": "ab78bb3b696fda55",
+  "at": "2026-10-27"
+ },
+ "https://www.capitalone.com/bank/disclosures/rdc/": {
+  "key": "capital_one.rdc",
+  "hash": "50af6a620384e43f",
+  "at": "2026-10-27"
+ },
+ "https://www.capitalone.com/help-center/checking-savings/atm-withdrawals-and-deposits/": {
+  "key": "capital_one.atm",
+  "hash": "5e1eb3d3a47e3f7c",
+  "at": "2026-10-27"
+ },
+ "https://www.td.com/content/dam/tdb/document/pdf/personal-banking/simple-savings-en.pdf": {
+  "key": "td_bank.fees",
+  "hash": "a30b805c83b6b090",
+  "at": "2026-10-27"
+ },
+ "https://www.td.com/content/dam/tdb/document/pdf/personal-banking/external-transfer-send-money-en.pdf": {
+  "key": "td_bank.zelle",
+  "hash": "115175ad5f406846",
+  "at": "2026-10-27"
+ },
+ "https://www.td.com/content/dam/tdb/document/pdf/personal-banking/personalacctagree-en.pdf": {
+  "key": "td_bank.pda",
+  "hash": "64f112e956490325",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/-/media/pdfs/pricing-schedules/Checking-Pricing-Schedule.pdf": {
+  "key": "regions.fees",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/-/media/pdfs/quick-guides/QuickGuide-Check-Cashing.pdf": {
+  "key": "regions.cash",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/help/online-banking-help/send-and-receive-money/sending-money-with-zelle/how-much-money-can-i-send-with-zelle": {
+  "key": "regions.zelle",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/help/products-services/visa-debit-card/using-your-debit-card/is-there-a-daily-atm-limit": {
+  "key": "regions.atm",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/help/products-services/visa-debit-card/using-your-debit-card/is-there-a-daily-purchase-limit": {
+  "key": "regions.pos",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/help/online-banking-help/mobile-deposit/funds-availability/what-are-the-availability-options-for-regions-mobile-deposit": {
+  "key": "regions.mobile",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.regions.com/insights/personal/article/how-direct-deposit-works": {
+  "key": "regions.early",
+  "hash": "d4c25202f84caeba",
+  "at": "2026-10-27"
+ },
+ "https://www.mtb.com/content/dam/mtb-web/pdfs/checking.fee.transparency.guide.pdf": {
+  "key": "mt_bank.fees",
+  "hash": "d2c3765d8b7d7c17",
+  "at": "2026-10-27"
+ },
+ "https://www3.mtb.com/personal/online-and-mobile/payments/zelle/zelle-faqs-online-and-mobile-services": {
+  "key": "mt_bank.zelle",
+  "hash": "b6fd3dc13e6a4d83",
+  "at": "2026-10-27"
+ },
+ "https://www3.mtb.com/personal/online-and-mobile/faqs": {
+  "key": "mt_bank.faq",
+  "hash": "dd9aadceb1f8e1e5",
+  "at": "2026-10-27"
+ },
+ "https://content.53.com/personal-banking/checking/express-banking.html": {
+  "key": "fifth_third.express",
+  "hash": "15ced3f78a104af0",
+  "at": "2026-10-27"
+ },
+ "https://www.navyfederal.org/account-management/zelle.html": {
+  "key": "navy_federal.zelle",
+  "hash": "457227265603f2ef",
+  "at": "2026-10-27"
+ },
+ "https://www.navyfederal.org/services/mobile-online-banking/mobile-deposits.html": {
+  "key": "navy_federal.mobile",
+  "hash": "0d00e136b7214379",
+  "at": "2026-10-27"
+ },
+ "https://www.navyfederal.org/content/dam/nfculibs/pdfs/credit-debit-cards/nfcu_210ab.pdf": {
+  "key": "navy_federal.debit",
+  "hash": "00d965d5272edd40",
+  "at": "2026-10-27"
+ },
+ "https://www.navyfederal.org/checking-savings/checking/active-duty-checking.html": {
+  "key": "navy_federal.early",
+  "hash": "4be65c6123fbc828",
+  "at": "2026-10-27"
+ },
+ "https://www.usaa.com/support/banking/zelle": {
+  "key": "usaa.zelle",
+  "hash": "334cc6423566c04c",
+  "at": "2026-10-27"
+ },
+ "https://www.usaa.com/support/banking/deposit-at-mobile-faq/": {
+  "key": "usaa.mobile",
+  "hash": "666ffdeee869b61c",
+  "at": "2026-10-27"
+ },
+ "https://www.usaa.com/banking/checking/": {
+  "key": "usaa.early",
+  "hash": "8d430dd674b55add",
+  "at": "2026-10-27"
+ },
+ "https://help.venmo.com/cs/articles/personal-profile-payment-limits-vhel188": {
+  "key": "venmo.limits",
+  "hash": "633b57244fffac11",
+  "at": "2026-10-27"
+ },
+ "https://help.venmo.com/cs/articles/personal-profile-bank-transfer-limits-vhel314": {
+  "key": "venmo.bank",
+  "hash": "c37603e9153f2663",
+  "at": "2026-10-27"
+ },
+ "https://venmo.com/about/fees/": {
+  "key": "venmo.fees",
+  "hash": "8a1704a6a33a2c9e",
+  "at": "2026-10-27"
+ },
+ "https://cash.app/help/6543-account-limits": {
+  "key": "cash_app.limits",
+  "hash": "e3b0c44298fc1c14",
+  "at": "2026-10-27"
+ },
+ "https://cash.app/legal/cashappterms2": {
+  "key": "cash_app.terms",
+  "hash": "5ba52ef9416cd772",
+  "at": "2026-10-27"
+ },
+ "https://cash.app/legal/us/en-us/card-agreement": {
+  "key": "cash_app.card",
+  "hash": "b4374caf7957b9db",
+  "at": "2026-10-27"
+ },
+ "https://www.paypal.com/us/cshelp/article/HELP286": {
+  "key": "paypal.limits",
+  "hash": "56a95fbcdb9d76b3",
+  "at": "2026-10-27"
+ },
+ "https://www.paypal.com/us/digital-wallet/paypal-consumer-fees": {
+  "key": "paypal.fees",
+  "hash": "d5d6e4a2456f21a2",
+  "at": "2026-10-27"
+ },
+ "https://www.zelle.com/faq": {
+  "key": "zelle.faq",
+  "hash": "264c40a37f75c2b1",
+  "at": "2026-10-27"
+ },
+ "https://www.zelle.com/understanding-fraud-scams": {
+  "key": "zelle.scam",
+  "hash": "b2647c72c8dc5f3a",
+  "at": "2026-10-27"
+ },
+ "https://www.zelle.com/blog/were-evolving-how-consumers-send-money-zelle": {
+  "key": "zelle.app",
+  "hash": "3c2175cb6cdaba7b",
+  "at": "2026-10-27"
+ },
+ "https://consumer.ftc.gov/fakechecks": {
+  "key": "ftc.fakechecks",
+  "hash": "85cf0810739e28d3",
+  "at": "2026-10-27"
+ },
+ "https://consumer.ftc.gov/making-mobile-payments-protect-yourself-scams": {
+  "key": "ftc.apps",
+  "hash": "41154976b547af23",
+  "at": "2026-10-27"
+ },
+ "https://www.consumerfinance.gov/ask-cfpb/how-long-can-a-bank-or-credit-union-hold-funds-i-deposited-en-1023/": {
+  "key": "cfpb.hold",
+  "hash": "06ee2b14d87b12b8",
+  "at": "2026-10-27"
+ },
+ "https://www.consumerfinance.gov/ask-cfpb/is-the-money-i-keep-in-my-payment-app-safe-en-2135/": {
+  "key": "cfpb.apps",
+  "hash": "dfd24cf23098ddbe",
+  "at": "2026-10-27"
+ },
+ "https://www.consumerfinance.gov/ask-cfpb/what-are-some-common-types-of-fraud-and-scams-en-2092/": {
+  "key": "cfpb.fraud",
+  "hash": "76119addd27d15fc",
+  "at": "2026-10-27"
+ },
+ "https://www.helpwithmybank.gov/help-topics/fraud-scams/fraud/check-fraud/fraud-cashiers-check.html": {
+  "key": "occ.cashiers",
+  "hash": "78e57cc507ab05bd",
+  "at": "2026-10-27"
+ },
+ "https://www.uspis.gov/wp-content/uploads/2024/10/2024_USPIS-Money-Order-Handout_Flier_JR_Draft_v3.pdf": {
+  "key": "uspis.flier",
+  "hash": "7e39fb1f5faff894",
+  "at": "2026-10-27"
+ }
+}

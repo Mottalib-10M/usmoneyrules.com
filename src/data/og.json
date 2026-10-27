@@ -1,0 +1,13 @@
+{
+ "accent": "#1F4E3D",
+ "symbol": "MO",
+ "variants": [
+  {
+   "file": "og-en.png",
+   "title": "Money orders, check holds\nand bank limits, 2026",
+   "subtitle": "Fees and caps by store and bank · Regulation CC hold dates",
+   "badge": "Each figure dated to the page it was read on",
+   "brand": "US Money Rules"
+  }
+ ]
+}

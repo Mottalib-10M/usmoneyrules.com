@@ -1,0 +1,23 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title={`Contact ${SITE_NAMES[lang]}: a fee, a limit, a hold date`} description="Write to US Money Rules when a fee, a transfer limit or a hold date looks out of date, when a provider changed its page, or to embed a tool on your own website for free." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. A person reads every message.</p>
+    <h2>A figure looks out of date</h2>
+    <p>Tell us the page, the figure, and the bank, store or app page that shows the new one. We read the provider’s page again, update the data file with the new date of reading and say so on the page.</p>
+    <h2>What we cannot do</h2>
+    <p>We do not hold accounts and have no access to any bank. We cannot release a hold, trace or refund a money order, raise a Zelle limit or settle a dispute. For those, contact your bank or the seller of the money order; for a complaint about a bank, the CFPB accepts complaints online. Please never send account numbers, check images or personal details.</p>
+    <h2>Using a tool on your own site</h2>
+    <p>Credit unions, housing counselors, libraries and blogs can show the money order finder or the check hold calculator in an iframe at no cost: see the <a href={route('widget', lang)}>embed page</a>.</p>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>Updated on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-US')}</time>.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy of ${SITE_NAMES[lang]}: sources and corrections`} description="Which bank, store, Postal Service and federal pages US Money Rules reads, how each fee and limit is dated, which sources it refuses and how a mistake is corrected." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial and corrections policy</h1>
+    <p>People use these pages to decide where to buy a money order, whether a rent payment will clear in time or how to split a transfer. A wrong fee costs a few dollars; a wrong hold date can cost a late fee or a bounced payment. So every figure points to the page it was read on, with the date.</p>
+    <h2>Who is responsible</h2><p>{AUTHOR_NAME}, reachable at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>What we read</h2>
+    <ul>
+      <li>the Code of Federal Regulations on eCFR: Regulation CC (12 CFR Part 229) and 31 CFR Part 1010;</li>
+      <li>the Postal Service’s price list and money order pages;</li>
+      <li>each bank’s consumer fee schedule, deposit account agreement, online banking agreement and help pages;</li>
+      <li>the help centers and terms of stores, money transmitters and payment apps;</li>
+      <li>consumer pages of the FTC and the CFPB on check and payment scams.</li>
+    </ul>
+    <h2>Sources we refuse</h2><p>Rate roundups, comparison sites, forums, news articles and search-engine snippets never supply a figure here, even when they are right: we read the provider’s own page. A value a provider does not publish is shown as “not published”, never estimated. No ranking is sponsored and no provider pays to appear or to be left out.</p>
+    <h2>Review cycle</h2><p>A script re-reads every cited provider page each month once the site is online and flags the pages whose text changed; a person then reads them and updates the figures and their dates by hand. Federal amounts in Regulation CC change every five years (next adjustment July 1, 2030) and are re-read when the Federal Register publishes them.</p>
+    <h2>Corrections</h2>
+    <ol><li>We open the provider’s page again.</li><li>We correct the data file, with the new date of reading, and add a test when a calculation changes.</li><li>The site rebuilds and every page that uses the figure follows.</li></ol>
+    <h2>Independence</h2><p>No bank, store, transmitter or app pays for or reviews what is published here, and the site carries no affiliate or account-opening link. See also the <a href={route('method', lang)}>method page</a>. Version of <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-US')}</time>.</p>
+  </div>
+</PageLayout>

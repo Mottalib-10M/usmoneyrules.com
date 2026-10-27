@@ -1,0 +1,2134 @@
+{
+ "read": "2026-10-27",
+ "note": "Every value was read on the provider’s own page on the date shown. s = published | varies | not published | customers only | unreadable.",
+ "providers": {
+  "usps": {
+   "name": "USPS (Post Office)",
+   "type": "post",
+   "sources": {
+    "mo": {
+     "url": "https://www.usps.com/shop/money-orders.htm",
+     "title": "USPS, Money Orders",
+     "read": "2026-10-27"
+    },
+    "fees": {
+     "url": "https://pe.usps.com/text/dmm300/Notice123.htm",
+     "title": "USPS Domestic Mail Manual, Notice 123, Price List",
+     "read": "2026-10-27"
+    },
+    "dmm": {
+     "url": "https://pe.usps.com/text/dmm300/509.htm",
+     "title": "USPS Domestic Mail Manual 509, Other Services (money orders)",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_fee": {
+     "v": 2.65,
+     "s": "published",
+     "src": "fees",
+     "c": "face value $0.01 to $500, since October 4, 2026",
+     "bands": [
+      {
+       "to": 500,
+       "fee": 2.65
+      },
+      {
+       "to": 1000,
+       "fee": 3.75
+      }
+     ]
+    },
+    "mo_fee_military": {
+     "v": 0.85,
+     "s": "published",
+     "src": "fees",
+     "c": "postal military money order"
+    },
+    "mo_max": {
+     "v": 1000,
+     "s": "published",
+     "src": "dmm",
+     "c": "per domestic money order"
+    },
+    "mo_pay": {
+     "v": "cash, debit card with PIN, traveler’s checks (purchase of at least half their value); no credit card",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "free at any Post Office (exact amount, photo ID); most banks; some stores",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_report": {
+     "v": 3000,
+     "s": "published",
+     "src": "dmm",
+     "c": "buying $3,000 or more in a day: PS Form 8105-A with ID; cashing more than $10,000 a day: same form"
+    },
+    "mo_refund_fee": {
+     "v": 23.0,
+     "s": "published",
+     "src": "fees",
+     "c": "money order inquiry, also charged to replace a lost or stolen one"
+    },
+    "mo_refund": {
+     "v": "receipt to any Post Office to open a Money Order Inquiry; no stop payment; up to 30 days to confirm a loss, up to 60 days of investigation",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_verify": {
+     "v": "Money Order Verification System 1-866-459-7822; fraud to the Postal Inspection Service 1-877-876-2455",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_expiry": {
+     "v": "never expire",
+     "s": "published",
+     "src": "mo"
+    }
+   }
+  },
+  "walmart": {
+   "name": "Walmart",
+   "type": "store",
+   "sources": {
+    "mo": {
+     "url": "https://www.walmart.com/cp/money-orders/5791922",
+     "title": "Walmart, Money Orders",
+     "read": "2026-10-27"
+    },
+    "cash": {
+     "url": "https://www.walmart.com/cp/check-cashing/632047",
+     "title": "Walmart, Check Cashing",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "mo",
+     "c": "issued by Western Union, at the Money Center or Customer Service Desk"
+    },
+    "mo_fee": {
+     "v": 1.0,
+     "s": "varies",
+     "src": "mo",
+     "c": "maximum; the exact fee varies by store"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "mo",
+     "c": "photo ID asked above $1,000"
+    },
+    "mo_pay": {
+     "v": "cash or debit card",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "cashes Western Union and MoneyGram money orders, check cashing fee applies",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_refund": {
+     "v": "unused: refund in store 10 days after purchase with receipt and ID; lost or stolen: Western Union or MoneyGram process",
+     "s": "published",
+     "src": "mo"
+    },
+    "cash_fee": {
+     "v": 4,
+     "s": "published",
+     "src": "cash",
+     "c": "maximum fee for a pre-printed check up to $1,000; $8 above $1,000; two-party personal checks up to $200 at some stores, $6 maximum",
+     "bands": [
+      {
+       "to": 1000,
+       "fee": 4
+      },
+      {
+       "to": 7500,
+       "fee": 8
+      }
+     ]
+    },
+    "cash_max": {
+     "v": 5000,
+     "s": "published",
+     "src": "cash",
+     "c": "most states; $7,500 from January to April",
+     "hi": 7500
+    },
+    "cash_types": {
+     "v": "payroll, government, tax refund, cashier’s, insurance settlement and 401(k) checks; Western Union and MoneyGram money orders; two-party personal checks at some stores",
+     "s": "published",
+     "src": "cash"
+    }
+   }
+  },
+  "kroger": {
+   "name": "Kroger",
+   "type": "store",
+   "sources": {
+    "mo": {
+     "url": "https://www.westernunion.com/blog/en/us/money-orders-at-kroger/",
+     "title": "Western Union (issuer), Money orders at Kroger, Feb 18, 2026",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "mo",
+     "c": "Western Union money orders at the Money Services Desk; read on the issuer’s page, kroger.com was unreachable"
+    },
+    "mo_fee": {
+     "v": 1.5,
+     "s": "varies",
+     "src": "mo",
+     "c": "“or less”, varies by state (issuer’s page)"
+    },
+    "mo_max": {
+     "v": 1000,
+     "s": "varies",
+     "src": "mo",
+     "c": "“typically”, varies by store (issuer’s page)"
+    },
+    "mo_pay": {
+     "v": "cash or debit card, no credit card",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "may cash them for a check cashing fee, depending on store and amount",
+     "s": "published",
+     "src": "mo"
+    }
+   }
+  },
+  "publix": {
+   "name": "Publix",
+   "type": "store",
+   "sources": {
+    "mo": {
+     "url": "https://www.westernunion.com/blog/en/us/money-orders-at-publix/",
+     "title": "Western Union (issuer), Money orders at Publix, Feb 18, 2026",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "mo",
+     "c": "Western Union money orders at the customer service counter; read on the issuer’s page"
+    },
+    "mo_fee": {
+     "v": 1.0,
+     "s": "published",
+     "src": "mo",
+     "c": "per money order (issuer’s page)"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "mo"
+    },
+    "mo_pay": {
+     "v": "cash or debit card, ID required, no credit card",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "does not cash money orders",
+     "s": "published",
+     "src": "mo"
+    }
+   }
+  },
+  "seven_eleven": {
+   "name": "7-Eleven",
+   "type": "store",
+   "sources": {
+    "mo": {
+     "url": "https://www.westernunion.com/us/en/locations/7-eleven.html",
+     "title": "Western Union (issuer), 7-Eleven locations",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "varies",
+     "src": "mo",
+     "c": "Western Union money orders at participating stores; 7-Eleven publishes nothing on its own site"
+    },
+    "mo_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "mo"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "varies",
+     "src": "mo",
+     "c": "may depend on the store"
+    },
+    "mo_pay": {
+     "v": "cash at most stores",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "does not cash Western Union money orders",
+     "s": "published",
+     "src": "mo"
+    }
+   }
+  },
+  "western_union": {
+   "name": "Western Union",
+   "type": "transmitter",
+   "sources": {
+    "mo": {
+     "url": "https://www.westernunion.com/us/en/money-order.html",
+     "title": "Western Union, Money Orders",
+     "read": "2026-10-27"
+    },
+    "terms": {
+     "url": "https://www.westernunion.com/us/en/retail-money-order-terms-and-conditions.html",
+     "title": "Western Union, Retail Money Order Terms and Conditions",
+     "read": "2026-10-27"
+    },
+    "walgreens": {
+     "url": "https://www.westernunion.com/us/en/locations/walgreens.html",
+     "title": "Western Union, Walgreens locations",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "mo",
+     "c": "through participating agent locations (stores, check cashers)"
+    },
+    "mo_fee": {
+     "v": null,
+     "s": "varies",
+     "src": "mo",
+     "c": "a fee set by each location"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "varies",
+     "src": "mo",
+     "c": "no amount published; locations may set limits"
+    },
+    "mo_pay": {
+     "v": "cash or debit card, depending on the location",
+     "s": "varies",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "banks, grocery stores, check cashing locations (may charge); not every agent cashes them",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_refund": {
+     "v": "online refund form with serial number, amount and an image of the money order or receipt, only if not cashed; refund in cash at an agent in about 5 business days",
+     "s": "published",
+     "src": "terms"
+    },
+    "mo_refund_fee": {
+     "v": 15,
+     "s": "published",
+     "src": "terms",
+     "c": "$0 up to $5, $5 from $5.01 to $99.99, $15 from $100",
+     "bands": [
+      {
+       "to": 5,
+       "fee": 0
+      },
+      {
+       "to": 99.99,
+       "fee": 5
+      },
+      {
+       "to": 1000000000.0,
+       "fee": 15
+      }
+     ]
+    },
+    "mo_inactivity": {
+     "v": 1.5,
+     "s": "published",
+     "src": "terms",
+     "c": "a month if not used within 1 year (3 years in California); state exceptions"
+    },
+    "walgreens": {
+     "v": false,
+     "s": "published",
+     "src": "walgreens",
+     "c": "Western Union says its money orders are not sold at Walgreens"
+    }
+   }
+  },
+  "moneygram": {
+   "name": "MoneyGram",
+   "type": "transmitter",
+   "sources": {
+    "mo": {
+     "url": "https://www.moneygram.com/mgo/us/en/m/money-orders",
+     "title": "MoneyGram, Money Orders",
+     "read": "2026-10-27"
+    },
+    "refund": {
+     "url": "https://www.moneygram.com/us/en/help-center/faq/services/refund/how-does-the-money-order-refund-process-work",
+     "title": "MoneyGram, Money order refund process",
+     "read": "2026-10-27"
+    },
+    "fees": {
+     "url": "https://www.moneygram.com/us/en/help-center/faq/services/refund/what-are-processing-fees",
+     "title": "MoneyGram, Processing fees",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "mo",
+     "c": "through agent locations: supermarkets, financial institutions, check cashers, retailers"
+    },
+    "mo_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "mo"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "mo"
+    },
+    "mo_pay": {
+     "v": null,
+     "s": "not published",
+     "src": "mo"
+    },
+    "mo_cash": {
+     "v": "deposit at a bank or credit union, or cash at many check cashing locations (own fee, ID usually asked)",
+     "s": "published",
+     "src": "mo"
+    },
+    "mo_refund": {
+     "v": "check the status online, request a refund if eligible, about seven business days, collected at a MoneyGram location with ID; fee deducted",
+     "s": "published",
+     "src": "refund"
+    },
+    "mo_refund_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees",
+     "c": "varies by face value, shown only when the request starts"
+    },
+    "mo_copy_fee": {
+     "v": 18,
+     "s": "published",
+     "src": "fees",
+     "c": "photocopy of a cashed money order"
+    },
+    "mo_inactivity": {
+     "v": null,
+     "s": "not published",
+     "src": "mo",
+     "c": "monthly charge after one year uncashed, amount printed on the back"
+    }
+   }
+  },
+  "cvs": {
+   "name": "CVS",
+   "type": "store",
+   "sources": {
+    "site": {
+     "url": "https://www.cvs.com/",
+     "title": "CVS Pharmacy (site not readable from our reading location)",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": null,
+     "s": "unreadable",
+     "src": "site",
+     "c": "no CVS or issuer page could be read stating a money order service, fee or limit"
+    }
+   }
+  },
+  "walgreens": {
+   "name": "Walgreens",
+   "type": "store",
+   "sources": {
+    "wu": {
+     "url": "https://www.westernunion.com/us/en/locations/walgreens.html",
+     "title": "Western Union, Walgreens locations",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": false,
+     "s": "published",
+     "src": "wu",
+     "c": "Western Union says its money orders are not sold at Walgreens (money transfers are)"
+    }
+   }
+  },
+  "dollar_general": {
+   "name": "Dollar General",
+   "type": "store",
+   "sources": {
+    "site": {
+     "url": "https://www.dollargeneral.com/services",
+     "title": "Dollar General, Services (not readable from our reading location)",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": null,
+     "s": "unreadable",
+     "src": "site"
+    }
+   }
+  },
+  "chase": {
+   "name": "Chase",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.chase.com/content/dam/chase-ux/documents/personal/checking/ABSF-en.pdf",
+     "title": "Chase, Additional Banking Services and Fees",
+     "read": "2026-10-27"
+    },
+    "daa": {
+     "url": "https://www.chase.com/content/dam/chase-ux/documents/personal/checking/deposit-account-agreement.pdf",
+     "title": "Chase, Deposit Account Agreement",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://static.chasecdn.com/content/dam/legal-agreements/library/en/chasenet_la/versions/chasenet_la.pdf",
+     "title": "Chase, Digital Services Agreement (Zelle limits)",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.chase.com/digital/mobile-deposits",
+     "title": "Chase, Mobile deposits",
+     "read": "2026-10-27"
+    },
+    "secure": {
+     "url": "https://personal.chase.com/personal/secure-banking",
+     "title": "Chase Secure Banking",
+     "read": "2026-10-27"
+    },
+    "nocust": {
+     "url": "https://www.chase.com/personal/banking/education/basics/cash-a-check-without-a-bank-account",
+     "title": "Chase, Cash a check without a bank account",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": "customers",
+     "s": "customers only",
+     "src": "fees",
+     "c": "at a branch"
+    },
+    "mo_fee": {
+     "v": 5,
+     "s": "published",
+     "src": "fees",
+     "c": "waived on Secure, Premier Plus and Private Client accounts"
+    },
+    "mo_max": {
+     "v": 1000,
+     "s": "published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "at a branch, any amount; waived on Secure, Premier Plus and Private Client accounts"
+    },
+    "cc_stop": {
+     "v": 30,
+     "s": "published",
+     "src": "fees",
+     "c": "stop payment placed by a banker ($25 online); a cashier’s check can be stopped only with a sworn lost, stolen or destroyed statement"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "nocust",
+     "c": "Chase says banks may charge non-customers to cash their checks; no amount published"
+    },
+    "zelle_day": {
+     "v": 500,
+     "s": "published",
+     "src": "zelle",
+     "c": "dynamic tiers of $500, $2,000, $5,000 or $10,000 a day, set per payment and shown in the app; agreement of October 16, 2026",
+     "hi": 10000
+    },
+    "zelle_month": {
+     "v": null,
+     "s": "not published",
+     "src": "zelle"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "mobile",
+     "c": "shown in the app"
+    },
+    "mob_cutoff": {
+     "v": "11 p.m. ET",
+     "s": "published",
+     "src": "mobile",
+     "c": "next business day if sent before 11 p.m. ET"
+    },
+    "atm_day": {
+     "v": null,
+     "s": "not published",
+     "src": "daa"
+    },
+    "pos_day": {
+     "v": null,
+     "s": "not published",
+     "src": "daa"
+    },
+    "early": {
+     "v": "up to 2 business days",
+     "s": "published",
+     "src": "secure",
+     "c": "Chase Secure Banking only, not Total Checking"
+    },
+    "dd_day": {
+     "v": "same day received",
+     "s": "published",
+     "src": "daa"
+    }
+   }
+  },
+  "bank_of_america": {
+   "name": "Bank of America",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.bankofamerica.com/salesservices/deposits/resources/personal-schedule-fees/",
+     "title": "Bank of America, Personal Schedule of Fees",
+     "read": "2026-10-27"
+    },
+    "osa": {
+     "url": "https://www.bankofamerica.com/online-banking/service-agreement.go",
+     "title": "Bank of America, Online Banking Service Agreement (Zelle limits)",
+     "read": "2026-10-27"
+    },
+    "cut": {
+     "url": "https://www.bankofamerica.com/help/cutoff-times/",
+     "title": "Bank of America, Cutoff times",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://info.bankofamerica.com/en/digital-banking/mobile-check-deposit",
+     "title": "Bank of America, Mobile check deposit",
+     "read": "2026-10-27"
+    },
+    "atm": {
+     "url": "https://www.bankofamerica.com/deposits/self-service-atms/",
+     "title": "Bank of America, ATMs",
+     "read": "2026-10-27"
+    },
+    "dda": {
+     "url": "https://www.bankofamerica.com/salesservices/deposits/resources/deposit-agreements/",
+     "title": "Bank of America, Deposit Agreement and Disclosures",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": null,
+     "s": "not published",
+     "src": "fees",
+     "c": "no money order in the Personal Schedule of Fees"
+    },
+    "cc_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees",
+     "c": "“available for a fee” in financial centers, no amount in the schedule effective August 7, 2026"
+    },
+    "cc_stop": {
+     "v": 30,
+     "s": "published",
+     "src": "fees",
+     "c": "general stop payment fee"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": 8,
+     "s": "published",
+     "src": "fees",
+     "c": "non-customer cashing a check over $50 drawn on a Bank of America personal account",
+     "bands": [
+      {
+       "to": 50,
+       "fee": 0
+      },
+      {
+       "to": 1000000000.0,
+       "fee": 8
+      }
+     ]
+    },
+    "zelle_day": {
+     "v": 3500,
+     "s": "published",
+     "src": "osa",
+     "c": "after 60 days enrolled, 10 payments a day; $1,000 in the first 30 days, $2,000 from day 31 to 60; $500 to an unenrolled recipient"
+    },
+    "zelle_new": {
+     "v": 1000,
+     "s": "published",
+     "src": "osa",
+     "c": "first 30 days, then days 31 to 60",
+     "hi": 2000
+    },
+    "zelle_month": {
+     "v": 20000,
+     "s": "published",
+     "src": "osa",
+     "c": "calendar month, 60 payments"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "mobile",
+     "c": "monthly limit shown in the app"
+    },
+    "mob_cutoff": {
+     "v": "9 p.m. ET",
+     "s": "published",
+     "src": "cut",
+     "c": "8 p.m. PT for accounts opened in Mountain or Pacific states"
+    },
+    "wire_cutoff": {
+     "v": "5 p.m. ET",
+     "s": "published",
+     "src": "cut",
+     "c": "same-day domestic wire sent online"
+    },
+    "ach_cutoff": {
+     "v": "8 p.m. ET",
+     "s": "published",
+     "src": "cut",
+     "c": "transfer to another bank"
+    },
+    "atm_day": {
+     "v": null,
+     "s": "varies",
+     "src": "atm",
+     "c": "depends on card and account; can be changed in the app"
+    },
+    "early": {
+     "v": null,
+     "s": "not published",
+     "src": "dda",
+     "c": "no early direct deposit program found; deposits available the business day received"
+    }
+   }
+  },
+  "wells_fargo": {
+   "name": "Wells Fargo",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.wellsfargo.com/mobile-online-banking/service-fees/",
+     "title": "Wells Fargo, Service fees",
+     "read": "2026-10-27"
+    },
+    "everyday": {
+     "url": "https://www.wellsfargo.com/checking/everyday/account-fees-summary/",
+     "title": "Wells Fargo, Everyday Checking fees",
+     "read": "2026-10-27"
+    },
+    "prime": {
+     "url": "https://www.wellsfargo.com/checking/prime/account-fees-summary/",
+     "title": "Wells Fargo, Prime Checking fees",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www.wellsfargo.com/help/online-banking/zelle-faqs/",
+     "title": "Wells Fargo, Zelle FAQs",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.wellsfargo.com/help/mobile-features/mobile-deposit-faqs/",
+     "title": "Wells Fargo, Mobile deposit FAQs",
+     "read": "2026-10-27"
+    },
+    "early": {
+     "url": "https://www.wellsfargo.com/checking/early-pay-day/",
+     "title": "Wells Fargo, Early Pay Day",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": "customers",
+     "s": "customers only",
+     "src": "fees"
+    },
+    "mo_fee": {
+     "v": 5,
+     "s": "published",
+     "src": "fees",
+     "c": "$0 on Prime and Premier Checking"
+    },
+    "mo_max": {
+     "v": 1000,
+     "s": "published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "$0 on Prime and Premier Checking; online orders up to $2,000 plus $8 delivery"
+    },
+    "cc_online": {
+     "v": 8,
+     "s": "published",
+     "src": "fees",
+     "c": "delivery charge on top of the $10 fee, online orders up to $2,000"
+    },
+    "cc_stop": {
+     "v": 0,
+     "s": "published",
+     "src": "everyday",
+     "c": "stop payment on a lost, stolen or destroyed cashier’s check; over $1,000, a 90-day wait unless a surety bond is bought"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "zelle_day": {
+     "v": 3500,
+     "s": "published",
+     "src": "zelle",
+     "c": "rolling 24 hours, consumer account; some customers see higher limits"
+    },
+    "zelle_month": {
+     "v": 20000,
+     "s": "published",
+     "src": "zelle",
+     "c": "rolling 30 days"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "mobile",
+     "c": "shown per account in the app"
+    },
+    "mob_cutoff": {
+     "v": "9 p.m. PT",
+     "s": "published",
+     "src": "mobile",
+     "c": "business days; next day if before the cutoff"
+    },
+    "early": {
+     "v": "up to 2 business days",
+     "s": "published",
+     "src": "early",
+     "c": "Early Pay Day, all Wells Fargo checking accounts"
+    }
+   }
+  },
+  "citibank": {
+   "name": "Citi",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.citi.com/banking/compare-bank-accounts?Tier=BLUE",
+     "title": "Citi, Compare bank accounts (fees)",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://online.citi.com/JRS/forms/ZelleTermsAndConditions.pdf",
+     "title": "Citi, Zelle Terms and Conditions",
+     "read": "2026-10-27"
+    },
+    "cdaa": {
+     "url": "https://www.citi.com/content/dam/cfs/mobile/assets/JRS/popups/ao/CDAA.pdf",
+     "title": "Citi, Client Manual Consumer Accounts (effective Nov 20, 2025)",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": "customers",
+     "s": "customers only",
+     "src": "fees",
+     "c": "pricing depends on home address"
+    },
+    "mo_fee": {
+     "v": 5,
+     "s": "published",
+     "src": "fees",
+     "c": "base tier; waived with $30,000 or more in combined balances"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "“Official Check Fee”, base tier; waived in relationship tiers"
+    },
+    "cc_stop": {
+     "v": 30,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "zelle_day": {
+     "v": 2500,
+     "s": "published",
+     "src": "zelle",
+     "c": "$2,500 standard, $5,000 Priority and Citigold; $500 a day for new enrollments",
+     "hi": 5000
+    },
+    "zelle_new": {
+     "v": 500,
+     "s": "published",
+     "src": "zelle",
+     "c": "new enrollment or profile change, $2,500 a month"
+    },
+    "zelle_month": {
+     "v": 15000,
+     "s": "published",
+     "src": "zelle",
+     "c": "rolling 30 days",
+     "hi": 20000
+    },
+    "atm_day": {
+     "v": 1500,
+     "s": "published",
+     "src": "cdaa",
+     "c": "$1,500 per card per business day for standard accounts, up to $5,000 in higher tiers",
+     "hi": 5000
+    },
+    "pos_day": {
+     "v": 5000,
+     "s": "published",
+     "src": "cdaa",
+     "c": "purchases per account per business day, by tier",
+     "hi": 50000
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "cdaa"
+    },
+    "mob_cutoff": {
+     "v": "10:30 p.m. ET",
+     "s": "published",
+     "src": "cdaa",
+     "c": "9:30 p.m. CT; also Citibank ATMs"
+    }
+   }
+  },
+  "us_bank": {
+   "name": "U.S. Bank",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.usbank.com/dam/en/documents/pdfs/disclosures/consumer-pricing-information.pdf",
+     "title": "U.S. Bank, Consumer Pricing Information",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www.usbank.com/customer-service/knowledge-base/KB0069805.html",
+     "title": "U.S. Bank, Zelle limits",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.usbank.com/online-mobile-banking/mobile-check-deposit.html",
+     "title": "U.S. Bank, Mobile check deposit",
+     "read": "2026-10-27"
+    },
+    "atm": {
+     "url": "https://www.usbank.com/customer-service/knowledge-base/KB0075653.html",
+     "title": "U.S. Bank, Debit card limits",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": "customers",
+     "s": "customers only",
+     "src": "fees"
+    },
+    "mo_fee": {
+     "v": 5,
+     "s": "published",
+     "src": "fees",
+     "c": "waived for some Smart Rewards tiers and military customers"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees"
+    },
+    "cc_stop": {
+     "v": 35,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "not published",
+     "src": "zelle",
+     "c": "daily and 30-day limits set per person, shown in online banking"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "varies",
+     "src": "mobile",
+     "c": "by account, history and relationship; can be as low as $50 for accounts under 90 days"
+    },
+    "mob_cutoff": {
+     "v": "10 p.m. CT",
+     "s": "published",
+     "src": "mobile",
+     "c": "first $275 right away, the rest the next business day"
+    },
+    "atm_day": {
+     "v": null,
+     "s": "not published",
+     "src": "atm",
+     "c": "can be changed after 6 months or with a $5,000 average balance"
+    }
+   }
+  },
+  "pnc": {
+   "name": "PNC",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.pnc.com/content/dam/pnc-com/pdf/personal/Savings/service-charges-standard-savings.pdf",
+     "title": "PNC, Consumer Schedule of Service Charges and Fees",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www.pnc.com/content/dam/pnc-com/pdf/smallbusiness/zelle/zelle-terms-of-use.pdf",
+     "title": "PNC, Zelle Terms of Use",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.pnc.com/en/personal-banking/banking/online-and-mobile-banking/mobile-banking.html",
+     "title": "PNC, Mobile banking",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "schedule effective May 31, 2026, may vary by market"
+    },
+    "cc_stop": {
+     "v": 33,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": 2,
+     "s": "published",
+     "src": "fees",
+     "c": "non-client: free up to $25, $2 from $25.01 to $100, 2.5% above $100",
+     "bands": [
+      {
+       "to": 25,
+       "fee": 0
+      },
+      {
+       "to": 100,
+       "fee": 2
+      },
+      {
+       "to": 1000000000.0,
+       "pct": 2.5
+      }
+     ]
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "not published",
+     "src": "zelle",
+     "c": "shown only in the PNC Mobile app"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "mobile",
+     "c": "shown in the app"
+    },
+    "mob_cutoff": {
+     "v": "10 p.m. ET",
+     "s": "published",
+     "src": "mobile",
+     "c": "optional Express Funds fee of 2.5% over $100 for immediate funds"
+    }
+   }
+  },
+  "truist": {
+   "name": "Truist",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.truist.com/personaldepositsfeeschedule",
+     "title": "Truist, Personal Deposit Accounts Fee Schedule (effective 09/28/2026)",
+     "read": "2026-10-27"
+    },
+    "bsa": {
+     "url": "https://www.truist.com/content/dam/truist-bank/us/en/documents/disclosures/banking/bank-services-agreement-privacy-notice.pdf",
+     "title": "Truist, Bank Services Agreement",
+     "read": "2026-10-27"
+    },
+    "osa": {
+     "url": "https://www.truist.com/content/dam/truist-bank/us/en/documents/agreement/online-and-mobile-banking-service-agreement.pdf",
+     "title": "Truist, Online and Mobile Banking Service Agreement",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": "customers",
+     "s": "customers only",
+     "src": "fees"
+    },
+    "mo_fee": {
+     "v": 5,
+     "s": "published",
+     "src": "fees",
+     "c": "no charge on Marquee, Asset Management and some Truist One levels"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "“Official Check”, per item"
+    },
+    "cc_stop": {
+     "v": 35,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": 8,
+     "s": "published",
+     "src": "fees",
+     "c": "non-client cashing a Truist check; $0 for checks of $50 or less and in New Jersey",
+     "bands": [
+      {
+       "to": 50,
+       "fee": 0
+      },
+      {
+       "to": 1000000000.0,
+       "fee": 8
+      }
+     ]
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "not published",
+     "src": "osa",
+     "c": "set at Truist’s discretion, may be shown in the app"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "osa"
+    },
+    "mob_cutoff": {
+     "v": "9 p.m. ET",
+     "s": "published",
+     "src": "bsa",
+     "c": "branch cutoff no earlier than 2 p.m. local time"
+    },
+    "atm_day": {
+     "v": 500,
+     "s": "published",
+     "src": "fees",
+     "c": "by account level",
+     "hi": 5000
+    },
+    "pos_day": {
+     "v": 3000,
+     "s": "published",
+     "src": "fees",
+     "c": "$3,000 standard, more on premium accounts",
+     "hi": 25000
+    }
+   }
+  },
+  "capital_one": {
+   "name": "Capital One",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.capitalone.com/bank/disclosures/checking-accounts/online-checking-account/more-info/",
+     "title": "Capital One, 360 Checking fees",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www.capitalone.com/bank/zelle/",
+     "title": "Capital One, Zelle",
+     "read": "2026-10-27"
+    },
+    "early": {
+     "url": "https://www.capitalone.com/bank/early-paycheck/",
+     "title": "Capital One, Early paycheck",
+     "read": "2026-10-27"
+    },
+    "rdc": {
+     "url": "https://www.capitalone.com/bank/disclosures/rdc/",
+     "title": "Capital One, Mobile deposit disclosure",
+     "read": "2026-10-27"
+    },
+    "atm": {
+     "url": "https://www.capitalone.com/help-center/checking-savings/atm-withdrawals-and-deposits/",
+     "title": "Capital One, ATM withdrawals and deposits",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "at a Capital One location; $20 online (up to $250,000 a check)"
+    },
+    "cc_online": {
+     "v": 20,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "not published",
+     "src": "zelle",
+     "c": "shown when setting up a payment"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "rdc",
+     "c": "daily and monthly limits exist"
+    },
+    "mob_cutoff": {
+     "v": "9 p.m. ET",
+     "s": "published",
+     "src": "rdc"
+    },
+    "atm_day": {
+     "v": 2000,
+     "s": "published",
+     "src": "atm",
+     "c": "360 Checking; the account disclosure says the limit is set on risk criteria"
+    },
+    "pos_day": {
+     "v": 5000,
+     "s": "published",
+     "src": "atm",
+     "c": "purchases and withdrawals combined"
+    },
+    "early": {
+     "v": "up to 2 days",
+     "s": "published",
+     "src": "early",
+     "c": "360 Checking with direct deposit"
+    }
+   }
+  },
+  "td_bank": {
+   "name": "TD Bank",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.td.com/content/dam/tdb/document/pdf/personal-banking/simple-savings-en.pdf",
+     "title": "TD Bank, Simple Savings Account Guide",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www.td.com/content/dam/tdb/document/pdf/personal-banking/external-transfer-send-money-en.pdf",
+     "title": "TD Bank, Send Money with Zelle and external transfers agreement",
+     "read": "2026-10-27"
+    },
+    "pda": {
+     "url": "https://www.td.com/content/dam/tdb/document/pdf/personal-banking/personalacctagree-en.pdf",
+     "title": "TD Bank, Personal Deposit Account Agreement",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": "customers",
+     "s": "customers only",
+     "src": "fees"
+    },
+    "mo_fee": {
+     "v": 5,
+     "s": "published",
+     "src": "fees",
+     "c": "Simple Savings guide; other accounts may differ"
+    },
+    "mo_max": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 8,
+     "s": "published",
+     "src": "fees",
+     "c": "“Official checks”, Simple Savings guide"
+    },
+    "cc_stop": {
+     "v": 30,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "zelle_day": {
+     "v": 2500,
+     "s": "published",
+     "src": "zelle"
+    },
+    "zelle_month": {
+     "v": 10000,
+     "s": "published",
+     "src": "zelle"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "pda",
+     "c": "shown in the app"
+    },
+    "mob_cutoff": {
+     "v": "8 p.m. ET",
+     "s": "published",
+     "src": "pda",
+     "c": "same cutoff at a TD Store and a TD ATM; $100 of check deposits available the same day"
+    },
+    "early": {
+     "v": "up to 2 business days",
+     "s": "published",
+     "src": "pda",
+     "c": "TD Early Pay, eligible direct deposits"
+    }
+   }
+  },
+  "regions": {
+   "name": "Regions",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.regions.com/-/media/pdfs/pricing-schedules/Checking-Pricing-Schedule.pdf",
+     "title": "Regions, Personal Checking Pricing Schedule (effective Sept 9, 2026)",
+     "read": "2026-10-27"
+    },
+    "cash": {
+     "url": "https://www.regions.com/-/media/pdfs/quick-guides/QuickGuide-Check-Cashing.pdf",
+     "title": "Regions, Quick Guide to Check Cashing",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www.regions.com/help/online-banking-help/send-and-receive-money/sending-money-with-zelle/how-much-money-can-i-send-with-zelle",
+     "title": "Regions, Zelle limits",
+     "read": "2026-10-27"
+    },
+    "atm": {
+     "url": "https://www.regions.com/help/products-services/visa-debit-card/using-your-debit-card/is-there-a-daily-atm-limit",
+     "title": "Regions, Daily ATM limit",
+     "read": "2026-10-27"
+    },
+    "pos": {
+     "url": "https://www.regions.com/help/products-services/visa-debit-card/using-your-debit-card/is-there-a-daily-purchase-limit",
+     "title": "Regions, Daily purchase limit",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.regions.com/help/online-banking-help/mobile-deposit/funds-availability/what-are-the-availability-options-for-regions-mobile-deposit",
+     "title": "Regions, Mobile deposit availability",
+     "read": "2026-10-27"
+    },
+    "early": {
+     "url": "https://www.regions.com/insights/personal/article/how-direct-deposit-works",
+     "title": "Regions, How direct deposit works",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "fees"
+    },
+    "mo_fee": {
+     "v": 2,
+     "s": "published",
+     "src": "fees",
+     "c": "no fee with LifeGreen Preferred Checking"
+    },
+    "mo_max": {
+     "v": 1000,
+     "s": "published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "no fee with LifeGreen Preferred Checking"
+    },
+    "cc_stop": {
+     "v": 36,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "published",
+     "src": "cash",
+     "c": "non-account holders: Regions checks free up to $25, then 1% ($5 minimum, $20 maximum); payroll and government checks 1.5% ($5 minimum); other checks 4% ($5 minimum)",
+     "bands": [
+      {
+       "to": 25,
+       "fee": 0
+      },
+      {
+       "to": 1000000000.0,
+       "pct": 1,
+       "min": 5,
+       "max": 20
+      }
+     ]
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "varies",
+     "src": "zelle",
+     "c": "daily and 30-day limits by account and history, shown in the app"
+    },
+    "atm_day": {
+     "v": 808,
+     "s": "published",
+     "src": "atm",
+     "c": "personal debit card"
+    },
+    "pos_day": {
+     "v": 5000,
+     "s": "published",
+     "src": "pos"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "mobile"
+    },
+    "mob_cutoff": {
+     "v": "8 p.m. CT",
+     "s": "published",
+     "src": "mobile",
+     "c": "free same-evening availability, or immediately for a 1% to 4% fee ($5 minimum)"
+    },
+    "early": {
+     "v": "up to 2 days",
+     "s": "published",
+     "src": "early",
+     "c": "Early Pay, not guaranteed"
+    }
+   }
+  },
+  "mt_bank": {
+   "name": "M&T Bank",
+   "type": "bank",
+   "sources": {
+    "fees": {
+     "url": "https://www.mtb.com/content/dam/mtb-web/pdfs/checking.fee.transparency.guide.pdf",
+     "title": "M&T, Guide to Personal Checking Accounts and fees",
+     "read": "2026-10-27"
+    },
+    "zelle": {
+     "url": "https://www3.mtb.com/personal/online-and-mobile/payments/zelle/zelle-faqs-online-and-mobile-services",
+     "title": "M&T, Zelle FAQs",
+     "read": "2026-10-27"
+    },
+    "faq": {
+     "url": "https://www3.mtb.com/personal/online-and-mobile/faqs",
+     "title": "M&T, Online and mobile FAQs",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cc_fee": {
+     "v": 10,
+     "s": "published",
+     "src": "fees",
+     "c": "“Official Check Fee”, not on MyChoice Premium"
+    },
+    "cc_stop": {
+     "v": 35,
+     "s": "published",
+     "src": "fees"
+    },
+    "cert": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "fees"
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "not published",
+     "src": "zelle",
+     "c": "shown on the payment screen"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "faq",
+     "c": "depends on online banking tenure"
+    },
+    "mob_cutoff": {
+     "v": "10 p.m. ET",
+     "s": "published",
+     "src": "faq",
+     "c": "Flash Funds: immediate funds for 2% ($2 minimum)"
+    }
+   }
+  },
+  "fifth_third": {
+   "name": "Fifth Third",
+   "type": "bank",
+   "sources": {
+    "express": {
+     "url": "https://content.53.com/personal-banking/checking/express-banking.html",
+     "title": "Fifth Third, Express Banking",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "mo_sells": {
+     "v": true,
+     "s": "published",
+     "src": "express",
+     "c": "listed among Express Banking services, fee not stated"
+    },
+    "mo_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "express"
+    },
+    "cc_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "express"
+    },
+    "cash_fee": {
+     "v": null,
+     "s": "not published",
+     "src": "express",
+     "c": "published percentages (1% on Fifth Third checks, 2% payroll, 4% personal, $4 minimum) are for Express Banking account holders, not walk-in customers"
+    },
+    "zelle_day": {
+     "v": null,
+     "s": "unreadable",
+     "src": "express"
+    }
+   }
+  },
+  "navy_federal": {
+   "name": "Navy Federal Credit Union",
+   "type": "credit union",
+   "sources": {
+    "zelle": {
+     "url": "https://www.navyfederal.org/account-management/zelle.html",
+     "title": "Navy Federal, Zelle",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.navyfederal.org/services/mobile-online-banking/mobile-deposits.html",
+     "title": "Navy Federal, Mobile deposits",
+     "read": "2026-10-27"
+    },
+    "debit": {
+     "url": "https://www.navyfederal.org/content/dam/nfculibs/pdfs/credit-debit-cards/nfcu_210ab.pdf",
+     "title": "Navy Federal, Debit Card Disclosure",
+     "read": "2026-10-27"
+    },
+    "early": {
+     "url": "https://www.navyfederal.org/checking-savings/checking/active-duty-checking.html",
+     "title": "Navy Federal, Free Active Duty Checking",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "zelle_day": {
+     "v": 2000,
+     "s": "published",
+     "src": "zelle",
+     "c": "payments within minutes; separate $3,000 for standard 1 to 3 business day payments"
+    },
+    "zelle_month": {
+     "v": 12000,
+     "s": "published",
+     "src": "zelle",
+     "c": "rolling 30 days"
+    },
+    "mob_day": {
+     "v": 50000,
+     "s": "published",
+     "src": "mobile",
+     "c": "per business day, all accounts; 10 checks a day on personal accounts"
+    },
+    "mob_cutoff": {
+     "v": "6 p.m. ET",
+     "s": "published",
+     "src": "mobile",
+     "c": "$275 the next business day, the rest on the second"
+    },
+    "atm_day": {
+     "v": 1000,
+     "s": "published",
+     "src": "debit",
+     "c": "cash a day, ATMs and cash back included"
+    },
+    "pos_day": {
+     "v": 4000,
+     "s": "published",
+     "src": "debit",
+     "c": "$5,000 on Flagship Checking",
+     "hi": 5000
+    },
+    "early": {
+     "v": "1 business day",
+     "s": "published",
+     "src": "early",
+     "c": "Free Active Duty Checking only"
+    }
+   }
+  },
+  "usaa": {
+   "name": "USAA",
+   "type": "bank",
+   "sources": {
+    "zelle": {
+     "url": "https://www.usaa.com/support/banking/zelle",
+     "title": "USAA, Zelle support",
+     "read": "2026-10-27"
+    },
+    "mobile": {
+     "url": "https://www.usaa.com/support/banking/deposit-at-mobile-faq/",
+     "title": "USAA, Deposit@Mobile FAQ",
+     "read": "2026-10-27"
+    },
+    "early": {
+     "url": "https://www.usaa.com/banking/checking/",
+     "title": "USAA, Checking",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "zelle_day": {
+     "v": 1700,
+     "s": "published",
+     "src": "zelle",
+     "c": "any 24 hours, 10 payments"
+    },
+    "zelle_week": {
+     "v": 5000,
+     "s": "published",
+     "src": "zelle",
+     "c": "any 7 days"
+    },
+    "zelle_month": {
+     "v": 10000,
+     "s": "published",
+     "src": "zelle",
+     "c": "any 30 days"
+    },
+    "mob_day": {
+     "v": null,
+     "s": "not published",
+     "src": "mobile",
+     "c": "shown in the app"
+    },
+    "mob_cutoff": {
+     "v": "9 p.m. CT",
+     "s": "published",
+     "src": "mobile"
+    },
+    "early": {
+     "v": "up to 2 days",
+     "s": "published",
+     "src": "early",
+     "c": "with direct deposit, not guaranteed"
+    }
+   }
+  },
+  "citizens": {
+   "name": "Citizens",
+   "type": "bank",
+   "sources": {},
+   "f": {
+    "all": {
+     "v": null,
+     "s": "unreadable",
+     "src": null,
+     "c": "every official page returned an access error from our reading location; nothing is shown for this bank"
+    }
+   }
+  },
+  "huntington": {
+   "name": "Huntington",
+   "type": "bank",
+   "sources": {},
+   "f": {
+    "all": {
+     "v": null,
+     "s": "unreadable",
+     "src": null,
+     "c": "every official page returned an access error from our reading location; nothing is shown for this bank"
+    }
+   }
+  },
+  "keybank": {
+   "name": "KeyBank",
+   "type": "bank",
+   "sources": {},
+   "f": {
+    "all": {
+     "v": null,
+     "s": "unreadable",
+     "src": null,
+     "c": "every official page returned an access error from our reading location; nothing is shown for this bank"
+    }
+   }
+  },
+  "venmo": {
+   "name": "Venmo",
+   "type": "app",
+   "sources": {
+    "limits": {
+     "url": "https://help.venmo.com/cs/articles/personal-profile-payment-limits-vhel188",
+     "title": "Venmo, Personal profile payment limits",
+     "read": "2026-10-27"
+    },
+    "bank": {
+     "url": "https://help.venmo.com/cs/articles/personal-profile-bank-transfer-limits-vhel314",
+     "title": "Venmo, Bank transfer limits",
+     "read": "2026-10-27"
+    },
+    "fees": {
+     "url": "https://venmo.com/about/fees/",
+     "title": "Venmo, Fees",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "send_week": {
+     "v": 60000,
+     "s": "published",
+     "src": "limits",
+     "c": "identity verified, rolling week; $299.99 before verification"
+    },
+    "send_week_unv": {
+     "v": 299.99,
+     "s": "published",
+     "src": "limits"
+    },
+    "bank_week": {
+     "v": 19999.99,
+     "s": "published",
+     "src": "bank",
+     "c": "verified, $5,000 per transfer; $999.99 a week before verification"
+    },
+    "bank_txn": {
+     "v": 5000,
+     "s": "published",
+     "src": "bank"
+    },
+    "instant_pct": {
+     "v": 1.75,
+     "s": "published",
+     "src": "fees",
+     "c": "$0.25 minimum, $25 maximum; standard transfer free in 1 to 3 business days"
+    },
+    "instant_min": {
+     "v": 0.25,
+     "s": "published",
+     "src": "fees"
+    },
+    "instant_max": {
+     "v": 25,
+     "s": "published",
+     "src": "fees"
+    },
+    "card_pct": {
+     "v": 3.0,
+     "s": "published",
+     "src": "fees",
+     "c": "sending with a credit card"
+    }
+   }
+  },
+  "cash_app": {
+   "name": "Cash App",
+   "type": "app",
+   "sources": {
+    "limits": {
+     "url": "https://cash.app/help/6543-account-limits",
+     "title": "Cash App, Account limits",
+     "read": "2026-10-27"
+    },
+    "terms": {
+     "url": "https://cash.app/legal/cashappterms2",
+     "title": "Cash App Terms of Service (updated Sept 11, 2026)",
+     "read": "2026-10-27"
+    },
+    "card": {
+     "url": "https://cash.app/legal/us/en-us/card-agreement",
+     "title": "Cash App Card Agreement",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "send_month": {
+     "v": 40000,
+     "s": "published",
+     "src": "limits",
+     "c": "verified, rolling 30 days; $1,000 sent and received before verification"
+    },
+    "send_month_unv": {
+     "v": 1000,
+     "s": "published",
+     "src": "limits"
+    },
+    "instant_pct": {
+     "v": 0.5,
+     "s": "published",
+     "src": "terms",
+     "c": "0.5% to 2.5%, minimum $0.25 to $1, maximum $75; standard transfer free in 1 to 3 business days",
+     "hi": 2.5
+    },
+    "instant_max": {
+     "v": 75,
+     "s": "published",
+     "src": "terms"
+    },
+    "card_pct": {
+     "v": 3,
+     "s": "published",
+     "src": "terms",
+     "c": "adding money from a credit card"
+    },
+    "atm_fee": {
+     "v": 2.5,
+     "s": "published",
+     "src": "terms",
+     "c": "per withdrawal, reimbursed with qualifying deposits"
+    },
+    "atm_week": {
+     "v": 1000,
+     "s": "published",
+     "src": "card",
+     "c": "card ATM withdrawals, stated as a minimum"
+    },
+    "pos_day": {
+     "v": 7000,
+     "s": "published",
+     "src": "card",
+     "c": "$10,000 a week, $25,000 in 30 days"
+    }
+   }
+  },
+  "paypal": {
+   "name": "PayPal",
+   "type": "app",
+   "sources": {
+    "limits": {
+     "url": "https://www.paypal.com/us/cshelp/article/HELP286",
+     "title": "PayPal, Sending limits",
+     "read": "2026-10-27"
+    },
+    "fees": {
+     "url": "https://www.paypal.com/us/digital-wallet/paypal-consumer-fees",
+     "title": "PayPal, Consumer fees",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "send_txn": {
+     "v": 60000,
+     "s": "published",
+     "src": "limits",
+     "c": "verified account, per payment, may be capped at $10,000; $4,000 per payment before verification"
+    },
+    "send_txn_unv": {
+     "v": 4000,
+     "s": "published",
+     "src": "limits"
+    },
+    "instant_pct": {
+     "v": 1.75,
+     "s": "published",
+     "src": "fees",
+     "c": "$0.25 minimum, $25 maximum"
+    },
+    "instant_min": {
+     "v": 0.25,
+     "s": "published",
+     "src": "fees"
+    },
+    "instant_max": {
+     "v": 25,
+     "s": "published",
+     "src": "fees"
+    },
+    "card_pct": {
+     "v": 2.9,
+     "s": "published",
+     "src": "fees",
+     "c": "plus $0.30, friends and family funded by a card; free from balance or bank"
+    }
+   }
+  },
+  "zelle": {
+   "name": "Zelle",
+   "type": "network",
+   "sources": {
+    "faq": {
+     "url": "https://www.zelle.com/faq",
+     "title": "Zelle, FAQ",
+     "read": "2026-10-27"
+    },
+    "scam": {
+     "url": "https://www.zelle.com/understanding-fraud-scams",
+     "title": "Zelle, Understanding fraud and scams",
+     "read": "2026-10-27"
+    },
+    "app": {
+     "url": "https://www.zelle.com/blog/were-evolving-how-consumers-send-money-zelle",
+     "title": "Zelle, Changes to the standalone app",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {
+    "limits": {
+     "v": "set by each bank or credit union",
+     "s": "published",
+     "src": "faq"
+    },
+    "reversal": {
+     "v": "payments cannot be reversed; cancel only if the recipient is not yet enrolled",
+     "s": "published",
+     "src": "faq"
+    },
+    "app_end": {
+     "v": "March 2025",
+     "s": "published",
+     "src": "app",
+     "c": "standalone app users had to re-enroll through a bank"
+    }
+   }
+  },
+  "ftc": {
+   "name": "Federal Trade Commission",
+   "type": "agency",
+   "sources": {
+    "fakechecks": {
+     "url": "https://consumer.ftc.gov/fakechecks",
+     "title": "FTC, How to spot, avoid and report fake check scams",
+     "read": "2026-10-27"
+    },
+    "apps": {
+     "url": "https://consumer.ftc.gov/making-mobile-payments-protect-yourself-scams",
+     "title": "FTC, Mobile payment apps and scams",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {}
+  },
+  "cfpb": {
+   "name": "Consumer Financial Protection Bureau",
+   "type": "agency",
+   "sources": {
+    "hold": {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-long-can-a-bank-or-credit-union-hold-funds-i-deposited-en-1023/",
+     "title": "CFPB, How long can a bank hold funds I deposited?",
+     "read": "2026-10-27"
+    },
+    "apps": {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/is-the-money-i-keep-in-my-payment-app-safe-en-2135/",
+     "title": "CFPB, Is the money in my payment app safe?",
+     "read": "2026-10-27"
+    },
+    "fraud": {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-are-some-common-types-of-fraud-and-scams-en-2092/",
+     "title": "CFPB, What are some common types of fraud and scams?",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {}
+  },
+  "occ": {
+   "name": "Office of the Comptroller of the Currency",
+   "type": "agency",
+   "sources": {
+    "cashiers": {
+     "url": "https://www.helpwithmybank.gov/help-topics/fraud-scams/fraud/check-fraud/fraud-cashiers-check.html",
+     "title": "OCC HelpWithMyBank, I received a cashier's check that I think is fraudulent. What should I do?",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {}
+  },
+  "uspis": {
+   "name": "U.S. Postal Inspection Service",
+   "type": "agency",
+   "sources": {
+    "flier": {
+     "url": "https://www.uspis.gov/wp-content/uploads/2024/10/2024_USPIS-Money-Order-Handout_Flier_JR_Draft_v3.pdf",
+     "title": "USPIS, Receiving money orders: how to spot a fake (2024)",
+     "read": "2026-10-27"
+    }
+   },
+   "f": {}
+  }
+ }
+}

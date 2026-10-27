@@ -1,0 +1,8 @@
+---
+/** Credits shown at the foot of every page, embeds included (RECETTE §12.1). */
+interface Props { class?: string }
+const { class: cls = 'text-xs text-navy-500' } = Astro.props;
+---
+<p class={cls} data-licence-notice>
+  Federal rules: Code of Federal Regulations read on eCFR (US government work). Fees and limits: facts read on each provider’s own public pages, each cited with its date of reading. Bank, store and app names are trademarks of their owners, used only to identify them; no logo is used. Explanations, calculations and tools by Radif Partners.
+</p>

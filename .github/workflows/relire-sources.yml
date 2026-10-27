@@ -1,0 +1,18 @@
+# Relecture mensuelle des pages officielles des banques, enseignes et applis citées (src/data/providers.json).
+# Ne tourne qu'une fois le dépôt créé. Le script ne modifie aucun chiffre : une page changée (code 2) fait
+# échouer le job, une personne relit la page, corrige providers.json et sa date de lecture, puis lance
+# `node scripts/relire-sources.mjs --write`.
+name: relire-sources
+on:
+  schedule:
+    - cron: '23 7 3 * *'   # le 3 de chaque mois, 07:23 UTC
+  workflow_dispatch:
+jobs:
+  relire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/relire-sources.mjs

@@ -1,0 +1,88 @@
+---
+/**
+ * Home (pillar page). One switcher first (deposit hold, money order, sending limits), then the three
+ * subjects with their own tool, then every page of the site. Every figure is read from params-2026.json
+ * and providers.json through the helpers.
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import Tool from './Tool.astro';
+import Clamp from './Clamp.astro';
+import { route } from '../i18n/routes';
+import { PAGES } from '../lib/guides';
+import { GROUPS_ORDER, groupLabel } from '../i18n/nav';
+import { helpers } from '../lib/helpers';
+import { sourceOf } from '../lib/providers';
+import { LAST_UPDATED, AUTHOR_NAME } from '../data/site-config';
+import { displayDate } from '../lib/format';
+import { faqSchema, webApplicationSchema, websiteSchema, organizationSchema } from '../lib/seo';
+const lang = 'en';
+const h = helpers(lang, true);
+const cards = (g: (typeof GROUPS_ORDER)[number]) => PAGES.filter((p) => p.group === g).map((p) => ({ href: route(p.id, lang), name: p.en.nav, text: p.en.card }));
+const link = (id: string, text: string) => h.a(id, text);
+const RC = h.RC;
+const mo = h.moQuote('usps', 1500);
+
+const title = 'Money Order Fees, Check Hold Dates and Bank Transfer Limits';
+const description = 'Money order fees by seller, the date a bank must release a deposited check under Regulation CC, and Zelle, Venmo and ATM limits by bank, each with its source.';
+const faqs = [
+  { q: 'Where is the cheapest place to buy a money order?', a: `Among the sellers whose fees could be read, Walmart publishes a maximum of ${h.v('walmart', 'mo_fee')} and Publix ${h.v('publix', 'mo_fee')} per money order, against ${h.money(h.moFee('usps', 500)!)} at the Post Office for up to $500 since October 2026. The Post Office caps each money order at ${h.v('usps', 'mo_max')}, and so do most stores. The finder above counts how many you need for your amount and adds the fees seller by seller.` },
+  { q: 'How long can a bank hold a check I deposit?', a: `For an ordinary check with no exception, the first ${h.money(RC.nextDayAmount)} by the next business day and the rest by the second business day, under 12 CFR 229.12. Cashier’s, certified, Treasury and postal money order checks handed to a teller are due the next business day. A deposit over ${h.money(RC.largeDeposit)}, a new account or a redeposited check allow a longer hold, with a written notice.` },
+  { q: 'Does Zelle have its own sending limit?', a: 'No. Zelle’s own help pages say each bank or credit union sets the limit, and most do not publish it outside their app. Among those that publish, the daily figure for a consumer account ranges from a few hundred dollars for a new user to several thousand for a long-standing one, often with a separate monthly cap. The limits tool lists what each bank published.' },
+  { q: 'Is anything I type on this site sent to a bank?', a: 'No. Every tool runs in your browser and nothing you enter, not an amount, not a date, is sent or stored. The site has no account, no form and no link to open an account. It publishes the rules and the fees as their owners publish them, with the address and the date of the page each figure was read on.' },
+  { q: 'Why does the site say not published so often?', a: 'Because many banks show their limits only inside the app or online banking, and many stores leave money order fees to each location. Writing a number found in an old article would be guessing. When a provider does not publish a figure, the site says so and points to where the figure appears, usually the app or the deposit receipt.' },
+  { q: 'How often are the fees and limits checked?', a: 'Every figure carries the date its official page was read. A script reads all the pages again and flags those whose content has changed since, so a new fee schedule or a revised help article is caught and the figure updated. Between two readings, a provider can change its terms; the date shown tells you how fresh each figure is.' },
+  { q: 'Which is safer to receive, a money order or a cashier’s check?', a: 'Both are prepaid, so neither should bounce for lack of funds, but both are counterfeited in scams. A cashier’s check is drawn on a bank you can call at a number you look up yourself; a money order can be verified with its issuer, such as the Postal Service or Western Union. Never send money back before the item has been verified.' }
+];
+const jsonLd = [websiteSchema(lang), organizationSchema(lang), webApplicationSchema({ name: 'Money order, check hold and transfer limit finder', description, path: route('home', lang), lang }), faqSchema(faqs, lang)];
+const resume = `Three money questions come back every time a landlord refuses a card or a paycheck arrives as paper: where to get a money order and what it costs, when a deposited check can be spent, and how much a bank or an app lets you send. Each has a precise answer. The Post Office sells money orders of up to ${h.v('usps', 'mo_max')} for ${h.money(h.moFee('usps', 500)!)} up to $500 and ${h.money(h.moFee('usps', 1000)!)} above, the prices in force since October 4, 2026; ${h.money(1500)} therefore takes two money orders and ${h.money(mo.total!)} in fees. A deposited check is governed by Regulation CC: the first ${h.money(RC.nextDayAmount)} by the next business day, the rest by the second, and up to ${h.money(RC.largeDeposit)} protected from the large-deposit exception, amounts in force since ${h.date(RC.adjustedOn)}. Sending limits belong to each bank: Wells Fargo publishes ${h.v('wells_fargo', 'zelle_day')} a day by Zelle, Bank of America ${h.v('bank_of_america', 'zelle_day')} after 60 days. The tools above do the counting with the figures read on ${h.read}.`;
+const homeSources = ['regcc1010', 'regcc1012', 'regcc1013', 'regcc102', 'instruments', 'ctr', 'usps.fees', 'usps.mo', 'walmart.mo', 'walmart.cash', 'western_union.terms', 'wells_fargo.zelle', 'bank_of_america.osa', 'zelle.faq', 'venmo.limits', 'cash_app.limits', 'paypal.limits', 'ftc.fakechecks'].map(sourceOf);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={jsonLd} faqs={faqs} breadcrumbs={[]}>
+  <header class="mb-3">
+    <h1 class="mt-0 text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">Money orders, check holds and sending limits, worked out</h1>
+    <p class="mt-2 text-base text-navy-700 sm:text-lg">Pick your question: the date your deposit must be available, where a money order costs least, or how many days a transfer takes.</p>
+  </header>
+  <div data-outil class="mb-4"><Tool tool={{ kind: 'tasks' }} primary={true} seedKey="home" /></div>
+  <Clamp text={resume} id="clamp-home" lang={lang} class="mb-3" />
+  <p class="mb-8 text-sm text-navy-600">{AUTHOR_NAME} · <a href={route('method', lang)} class="underline hover:text-navy-900">How the dates and fees are worked out</a> · <a href={route('about', lang)} class="underline hover:text-navy-900">About this site</a></p>
+
+  <div class="prose prose-slate max-w-none">
+    <h2>Money orders: who sells them, for how much, up to what amount</h2>
+    <p set:html={`A money order is a prepaid paper payment: you hand over the amount plus a fee, and the seller prints a slip the payee can cash or deposit. The Postal Service issues its own, and stores sell those of Western Union or MoneyGram. The cost is the fee multiplied by the number of slips, and the number of slips depends on the cap per money order, which is ${h.v('usps', 'mo_max')} at the Post Office. Banks sell money orders too, but mostly to their own account holders.`} />
+    <Fragment set:html={h.moTable(1500, ['usps', 'walmart', 'kroger', 'publix', 'western_union', 'moneygram', 'chase', 'regions'])} />
+    <p set:html={`Some stores do not appear with a fee because they publish none: Western Union and MoneyGram let each location set it. The ${link('where-to-get-a-money-order', 'where to get a money order')} page goes through every seller, the ${link('how-to-fill-out-a-money-order', 'filling guide')} shows the fields to complete before you hand it over, and ${link('where-to-cash-a-money-order', 'cashing one')} is free at a Post Office for a postal money order.`} />
+
+    <h2>Check holds: the dates the law sets</h2>
+    <p set:html={`Regulation CC, the Federal Reserve’s rule at ${h.src('regcc', '12 CFR Part 229')}, sets the latest day a bank may make a deposit available. It counts in business days, skipping weekends and ten federal holidays, and it starts from the day the deposit is received before the bank’s cutoff, which may not be earlier than ${RC.cutoffTellerMin} at a branch or ${RC.cutoffAtmMin} at an ATM. The amounts were raised on ${h.date(RC.adjustedOn)} for inflation: ${h.money(RC.nextDayAmount)} next day instead of $225, and ${h.money(RC.largeDeposit)} for the large-deposit and new-account thresholds instead of $5,525.`} />
+  </div>
+  <div class="mb-6"><Tool tool={{ kind: 'mini:clear' }} idPrefix="h1" /></div>
+  <div class="prose prose-slate max-w-none">
+    <p set:html={`The exceptions allow longer holds, never unlimited ones: for a deposit over ${h.money(RC.largeDeposit)}, only the excess can wait, up to five more business days for an ordinary check. A new account, in its first ${RC.newAccountDays} days, is the one case without a federal deadline for ordinary checks. The ${link('how-long-does-a-check-take-to-clear', 'check clearing calculator')} handles every case and the ${link('check-hold-rules', 'hold rules page')} explains each exception and the notice the bank owes you.`} />
+
+    <h2>Sending limits: Zelle, apps, ATMs</h2>
+    <p set:html={`Zelle has no limit of its own; each bank sets one. A few publish it in their agreement, and the figures differ widely: ${h.v('usaa', 'zelle_day')} in 24 hours at USAA, ${h.v('td_bank', 'zelle_day')} a day at TD Bank, ${h.v('wells_fargo', 'zelle_day')} at Wells Fargo. Apps publish theirs: Venmo allows ${h.v('venmo', 'send_week')} a week once your identity is verified, and Cash App ${h.v('cash_app', 'send_month')} in 30 days. When a sum is above the limit, it takes several days, and a rolling monthly cap can stretch that further.`} />
+  </div>
+  <div class="mb-6"><Tool tool={{ kind: 'mini:days' }} idPrefix="h2" /></div>
+  <div class="prose prose-slate max-w-none">
+    <p set:html={`The ${link('zelle-limit', 'Zelle limits')} page compares every bank whose limit could be read, the ${link('atm-withdrawal-limit', 'ATM limits')} page does the same for cash, and the ${link('depositing-cash-over-10000', 'cash reporting')} page explains what happens above ${h.money(h.CASH.ctrThreshold)} in a day.`} />
+
+    <h2>Every page of the site</h2>
+  </div>
+  <div class="not-prose grid gap-6 sm:grid-cols-2" data-sommaire>
+    {GROUPS_ORDER.map((g) => (
+      <section><h3 class="mb-2 text-lg font-semibold text-navy-900">{groupLabel(g)}</h3><ul class="space-y-2 text-sm">{cards(g).map((c) => <li><a href={c.href} class="font-medium text-accent-700 underline">{c.name}</a><span class="block text-navy-700">{c.text}</span></li>)}</ul></section>
+    ))}
+  </div>
+  <div class="prose prose-slate mt-8 max-w-none">
+    <h2>Why our data changes the answer</h2>
+    <p>A fee or a limit copied from an article goes stale without anyone noticing. Three changes in the last year show it: the Regulation CC amounts rose on July 1, 2025, the Postal Service raised its money order fees on October 4, 2026, and several banks moved from one fixed Zelle limit to limits that depend on tenure or on the payment. This site reads each figure on the page of the bank, the store, the issuer or the regulation itself, keeps the address and the date of reading next to it, and re-reads those pages every month with a script that flags any page whose text changed.</p>
+    <p>When a provider publishes nothing, the site says “not published” rather than borrowing a number from elsewhere. That is less tidy than a full table, but it is the only way a table can be trusted.</p>
+
+    <h2>How this site works</h2>
+    <p>The tools run in your browser. Nothing you type is sent or stored, there is no account to create, and the site carries no link to open an account and no sponsored ranking. Bank, store and app names appear as plain text, without logos. The <a href={route('method', lang)}>method page</a> explains each calculation.</p>
+    <h2 id="sources">Sources</h2>
+    <p>Rules, fees and limits on this page were read on these pages on {h.read}.</p>
+    <ul>{homeSources.map((s) => <li><a href={s.url} target="_blank" rel="nofollow noopener noreferrer">{s.name}</a></li>)}</ul>
+    <p class="text-sm text-navy-600">Figures checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-US')}</time>.</p>
+  </div>
+</PageLayout>

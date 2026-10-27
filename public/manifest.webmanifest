@@ -1,0 +1,21 @@
+{
+ "name": "US Money Rules",
+ "short_name": "US Money Rules",
+ "description": "Money orders, cashier's checks, check holds and transfer limits in the US: where to buy, what it costs, the most you can send and when your deposit becomes available.",
+ "start_url": "/en/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#1F4E3D",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

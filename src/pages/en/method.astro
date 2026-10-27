@@ -1,0 +1,47 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { LAST_UPDATED } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { breadcrumbSchema, articleSchema } from '../../lib/seo';
+import { helpers } from '../../lib/helpers';
+import { displayDate } from '../../lib/format';
+import { PV } from '../../lib/providers';
+const lang = 'en';
+const h = helpers(lang);
+const RC = h.RC;
+const all = Object.values(PV.providers);
+const nFacts = all.reduce((s, p) => s + Object.keys(p.f).length, 0);
+const nPub = all.reduce((s, p) => s + Object.values(p.f).filter((f) => f.v != null && f.s !== 'unreadable').length, 0);
+const nSrc = all.reduce((s, p) => s + Object.keys(p.sources).length, 0);
+const unreadable = all.filter((p) => p.f.all?.s === 'unreadable').map((p) => p.name);
+---
+<PageLayout title="Method of US Money Rules: hold dates, fees and limits" description="How US Money Rules counts Regulation CC hold dates, where each money order fee and transfer limit was read, and what it does when a figure is not published." lang={lang} jsonLd={[articleSchema({ title: 'How hold dates, fees and limits are worked out', description: 'Method of US Money Rules', path: route('method', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Method', path: route('method', lang) }])]} breadcrumbs={[{ label: 'Method' }]}>
+  <header class="mb-6"><p class="kicker">Method</p><h1 class="mt-0 text-3xl font-bold text-navy-900 md:text-4xl">How hold dates, fees and limits are worked out</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <p>Every page and every tool reads two data files. The first holds the federal rules: the Regulation CC amounts and the Bank Secrecy Act thresholds, read on eCFR on {h.date(h.P.retrieved_at)}. The second holds {nFacts} facts on {all.length} banks, stores, money transmitters, apps and agencies, of which {nPub} are actual figures or published wording and the rest are marked “not published”, “varies by location” or “page not readable”, each with one of {nSrc} source pages and the date it was read. No fee or limit is typed into a page by hand: when the file changes, every page and every tool follows. Automated tests check the hold engine against examples worked out by hand from the regulation and its official commentary.</p>
+
+    <h2>1. Check hold dates (Regulation CC)</h2>
+    <ul>
+      <li><strong>Business days.</strong> A business day is a weekday other than the federal holidays listed in <Fragment set:html={h.src('regcc102', '12 CFR 229.2(g)')} />: New Year’s Day, Martin Luther King Jr.’s Birthday, Washington’s Birthday, Memorial Day, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving and Christmas. When January 1, July 4, November 11 or December 25 falls on a Sunday, the next Monday is not a business day; when one falls on a Saturday, the Friday before stays a business day. Juneteenth is not in the regulation’s list; because most banks close and their disclosures say “federal holidays”, the calculator skips June 19 by default and lets you turn that off.</li>
+      <li><strong>Day of deposit.</strong> A deposit made after the bank’s cutoff, or on a day that is not a business day, counts on the next business day. A bank may not set the cutoff earlier than {RC.cutoffTellerMin} at a branch or {RC.cutoffAtmMin} at an ATM or off-premises facility (<Fragment set:html={h.src('regcc1019', '§ 229.19(a)(5)')} />). Funds due on a day must be available by {RC.availableFrom} or the opening of business (§ 229.19(b)).</li>
+      <li><strong>Next-day items</strong> (<Fragment set:html={h.src('regcc1010', '§ 229.10')} />): cash and electronic payments; US Treasury checks; postal money orders, cashier’s, certified and teller’s checks and state or local government checks deposited in person to an employee of the bank (by the second business day otherwise, which is how a mobile deposit is treated here, the regulation not naming it); checks drawn on the same bank; and {h.money(RC.nextDayAmount)} of other checks deposited that day.</li>
+      <li><strong>Other checks</strong> (<Fragment set:html={h.src('regcc1012', '§ 229.12')} />): the second business day. Every check is now local, since the Federal Reserve has a single check processing office. A deposit at another bank’s ATM may wait until the fifth business day. For cash withdrawals, the bank may take one more business day, except {h.money(RC.cashWithdrawalAmount)}, available by {RC.cashBy}.</li>
+      <li><strong>Exceptions</strong> (<Fragment set:html={h.src('regcc1013', '§ 229.13')} />): new accounts in their first {RC.newAccountDays} calendar days (next-day items protected up to {h.money(RC.newAccountFirst)}, the excess by the {RC.newAccountExcessDay}th business day, ordinary checks with no federal deadline); large deposits over {h.money(RC.largeDeposit)} a day (only the excess may be held longer); redeposited checks; repeated overdrafts; reasonable cause to doubt payment; emergencies. The extra time is the “reasonable period” of § 229.13(h)(4): one more business day for a check drawn on the same bank, five for other checks, six for nonlocal ones. A next-day item caught by an exception first moves to the second-business-day schedule. The worked example of the official commentary (a $7,000 cashier’s check: {h.money(RC.largeDeposit)} next day, {h.money(7000 - RC.largeDeposit)} later) is one of the tests.</li>
+      <li><strong>Amounts</strong> were adjusted for inflation on {h.date(RC.adjustedOn)} under <Fragment set:html={h.src('regcc1011', '§ 229.11')} />; the next adjustment is due on {h.date(RC.nextAdjustment)}.</li>
+    </ul>
+    <p>The dates are the latest ones the regulation allows. A bank may release funds sooner, and many do; your deposit receipt or the bank’s availability policy shows its own schedule. Credit unions follow the same rule.</p>
+
+    <h2>2. Money order fees and caps</h2>
+    <p>Each seller’s fee, cap per money order and accepted payment come from its own page, or from the issuer’s page when the store’s site could not be read: the Kroger and Publix figures come from Western Union’s own pages about those stores and are labelled so. Where the published fee is a maximum (“$1 max” at Walmart) or a typical one (“or less” at Kroger), the tools show it as such. The number of money orders is the amount divided by the cap, rounded up; the Postal Service fee is applied to each slip on its own band ({h.money(h.moFee('usps', 500)!)} up to $500, {h.money(h.moFee('usps', 1000)!)} up to $1,000). When a seller publishes no cap, the number of slips is not counted. Bank fees are those of each bank’s fee schedule for its standard account; many premium accounts waive them, as noted in each row.</p>
+
+    <h2>3. Transfer, deposit and cash limits</h2>
+    <p>Zelle limits come from each bank’s service agreement or Zelle help page, Venmo, Cash App and PayPal limits from their help centers and terms, and ATM and debit card limits from deposit agreements and fee schedules. Many banks show limits only inside their app: they appear as “not published”. The days needed for a sum assume you send the most allowed each day and respect any weekly or 30-day cap, counted on a rolling window. Cash reporting follows <Fragment set:html={h.src('ctr', '31 CFR 1010.311')} /> (more than {h.money(h.CASH.ctrThreshold)} a business day) and <Fragment set:html={h.src('instruments', '31 CFR 1010.415')} /> (cash purchases of money orders or cashier’s checks from {h.money(h.CASH.instrumentRecordFrom)} to {h.money(h.CASH.instrumentRecordTo)}).</p>
+
+    <h2>4. Pages that could not be read</h2>
+    <p>Some providers block automated reading or show nothing to visitors outside the United States. For {unreadable.join(', ')}, no official page could be read, so the tools show nothing for them instead of numbers from third-party articles. The CVS and Dollar General sites could not be read either. These gaps are re-tried at each monthly reading.</p>
+
+    <h2>5. Keeping figures current</h2>
+    <p>A script re-reads every provider page cited here once a month, compares the text with the previous reading and lists the pages that changed. It never changes a figure on its own: a person reads the changed page, updates the data file and its date of reading. Corrections sent to the contact address follow the same path; the <a href={route('editorial', lang)}>editorial policy</a> describes it.</p>
+    <p class="text-sm text-navy-600">Method last reviewed on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-US')}</time>.</p>
+  </div>
+</PageLayout>

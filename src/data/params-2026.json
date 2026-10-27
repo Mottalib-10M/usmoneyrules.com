@@ -1,0 +1,105 @@
+{
+  "_lisezmoi": "Federal rules used by the engine (RECETTE §4). Bank, store and app fees and limits live in providers.json. Each value was read on the cited official page on retrieved_at.",
+  "year": 2026,
+  "retrieved_at": "2026-10-27",
+  "valid_from": "2025-07-01",
+  "valid_to": "2030-06-30",
+  "regcc": {
+    "_source": "12 CFR 229.10, 229.11(c), 229.12, 229.13, 229.19, read on eCFR (version of 2026-10-23) on 2026-10-27",
+    "nextDayAmount": 275,
+    "nextDayAmountPrev": 225,
+    "cashWithdrawalAmount": 550,
+    "largeDeposit": 6725,
+    "largeDepositPrev": 5525,
+    "newAccountFirst": 6725,
+    "newAccountExcessDay": 9,
+    "newAccountDays": 30,
+    "overdraftDays": 6,
+    "overdraftLarge": 6725,
+    "overdraftMonths": 6,
+    "reasonableOnUs": 1,
+    "reasonableLocal": 5,
+    "reasonableNonlocal": 6,
+    "foreignAtmDay": 5,
+    "cutoffTellerMin": "2:00 p.m.",
+    "cutoffAtmMin": "12:00 noon",
+    "availableFrom": "9:00 a.m.",
+    "cashBy": "5:00 p.m.",
+    "adjustedOn": "2025-07-01",
+    "nextAdjustment": "2030-07-01"
+  },
+  "cash": {
+    "_source": "31 CFR 1010.311, 1010.313, 1010.314 and 1010.415, read on eCFR on 2026-10-27",
+    "ctrThreshold": 10000,
+    "instrumentRecordFrom": 3000,
+    "instrumentRecordTo": 10000
+  },
+  "sources": {
+    "regcc": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229",
+      "label": {
+        "en": "12 CFR Part 229, Availability of Funds and Collection of Checks (Regulation CC), eCFR"
+      }
+    },
+    "regcc1010": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229/subpart-B/section-229.10",
+      "label": {
+        "en": "12 CFR 229.10, Next-day availability"
+      }
+    },
+    "regcc1011": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229/subpart-B/section-229.11",
+      "label": {
+        "en": "12 CFR 229.11, Adjustment of dollar amounts"
+      }
+    },
+    "regcc1012": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229/subpart-B/section-229.12",
+      "label": {
+        "en": "12 CFR 229.12, Availability schedule"
+      }
+    },
+    "regcc1013": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229/subpart-B/section-229.13",
+      "label": {
+        "en": "12 CFR 229.13, Exceptions (new accounts, large deposits, redeposited checks)"
+      }
+    },
+    "regcc1019": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229/subpart-B/section-229.19",
+      "label": {
+        "en": "12 CFR 229.19, When funds are considered deposited and cutoff hours"
+      }
+    },
+    "regcc102": {
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-229/subpart-A/section-229.2",
+      "label": {
+        "en": "12 CFR 229.2, Definitions (business day, cashier's check, certified check)"
+      }
+    },
+    "ctr": {
+      "url": "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.311",
+      "label": {
+        "en": "31 CFR 1010.311, Filing obligations for reports of transactions in currency"
+      }
+    },
+    "structuring": {
+      "url": "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.314",
+      "label": {
+        "en": "31 CFR 1010.314, Structured transactions"
+      }
+    },
+    "aggregation": {
+      "url": "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.313",
+      "label": {
+        "en": "31 CFR 1010.313, Aggregation of currency transactions"
+      }
+    },
+    "instruments": {
+      "url": "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-D/section-1010.415",
+      "label": {
+        "en": "31 CFR 1010.415, Purchases of cashier's checks, money orders and traveler's checks with currency"
+      }
+    }
+  }
+}

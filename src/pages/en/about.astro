@@ -1,0 +1,30 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+import { PAGES } from '../../lib/guides';
+import PV from '../../data/providers.json';
+const lang = 'en';
+const n = PAGES.length + 1;
+const np = Object.keys(PV.providers).length;
+---
+<PageLayout title="Radif Partners, publisher of US Money Rules: who we are" description="Who publishes US Money Rules, which bank, retail and federal pages its fees, limits and hold dates are read on, and why it takes no referral fee at all." lang={lang} jsonLd={[organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path: route('about', lang) }])]} breadcrumbs={[{ label: 'About' }]}>
+  <header class="mb-6"><p class="kicker">About</p><h1 class="mt-0 text-3xl font-bold text-navy-900 md:text-4xl">Who is behind {SITE_NAMES[lang]}</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>{SITE_NAMES[lang]} is published by {AUTHOR_NAME}, a company that builds free tools on public rules and published prices. It is written for the moment you have to pay a landlord who will not take a card, deposit a check you cannot afford to see held for a week, or move a sum larger than your app lets you send in one go.</p>
+    <h2>Why this site exists</h2>
+    <p>Each of these questions has an answer, but it is scattered: one bank page per bank, one help article per store, the regulation on eCFR, and articles that repeat figures from the year before. The tools here put the answers side by side and do the arithmetic: how many money orders a sum needs and what they cost at each seller, the last day a bank may hold each part of a deposit under Regulation CC, how many days a transfer takes under a bank’s daily cap.</p>
+    <h2>Where the figures come from</h2>
+    <p>Federal rules come from the Code of Federal Regulations as published on eCFR: Regulation CC (12 CFR Part 229) for check holds and the Bank Secrecy Act rules (31 CFR Part 1010) for large cash purchases. Fees and limits come from each provider’s own public pages: fee schedules, deposit agreements, help centers and price lists of {np} banks, stores, transmitters and apps. Each figure carries the address of the page it was read on and the date. When a provider does not publish a number, the site says “not published” instead of guessing. The <a href={route('method', lang)}>method page</a> explains every calculation.</p>
+    <h2>What we are not</h2>
+    <p>We are not a bank, a credit union, the Postal Service, a retailer, a money transmitter, a payment app, the Federal Reserve or the CFPB. We cannot see your account, lift a hold, raise a limit or trace a money order. The site uses no bank logo or official seal: names appear as plain text so you can recognize them.</p>
+    <h2>How the site is paid for, and what it will not do</h2>
+    <p>The site takes no referral fee and carries no link to open an account, no sponsored ranking and no “best bank” list. It asks for no name, email or phone number. If advertising is added one day, it will never sit inside a tool and cannot read what you type, which never leaves your browser.</p>
+    <h2>Tell us when something is wrong</h2>
+    <p>Fees and limits change. Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with the page, the figure and, if you have it, the provider page that says otherwise. The <a href={route('editorial', lang)}>editorial policy</a> explains how a correction is made and dated. The site has {n} pages of tools and guides.</p>
+    <p class="text-sm text-navy-600">Figures last checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-US')}</time>.</p>
+  </div>
+</PageLayout>

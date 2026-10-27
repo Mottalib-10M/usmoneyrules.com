@@ -1,0 +1,39 @@
+---
+/**
+ * Renders one tool with its page defaults:
+ * - `mo`     money order finder (props: amount, pay, focus = provider id, mode = 'buy' | 'cash')
+ * - `hold`   check hold calculator (props: kind, channel, amount, newAccount)
+ * - `limits` bank and app limits (props: op, amount, focus = provider id)
+ * - `fees`   cashier's checks, certified checks and check cashing by bank (props: op, amount, focus)
+ * - `tasks`  the home switcher (money order / check hold / limits)
+ * - `mini:<spec>` from `lib/mini-specs.ts`
+ */
+import MoneyOrderFinder from './calc/MoneyOrderFinder';
+import CheckHold from './calc/CheckHold';
+import LimitCompare from './calc/LimitCompare';
+import FeeCompare from './calc/FeeCompare';
+import TaskTabs from './calc/TaskTabs';
+import MiniSim from './calc/MiniSim';
+import { route, hasRoute, type Locale } from '../i18n/routes';
+import { getSpec } from '../lib/mini-specs';
+import { PROVIDER_PAGE } from '../lib/provider-pages';
+import type { ToolDef } from '../lib/guide-types';
+interface Props { tool: ToolDef; lang?: Locale; primary?: boolean; idPrefix?: string; seedKey?: string }
+const { tool, lang = 'en', primary = false, idPrefix } = Astro.props;
+const props = (tool.props ?? {}) as Record<string, any>;
+const kind = tool.kind;
+const mini = kind.startsWith('mini:') ? kind.slice(5) : null;
+const spec = mini ? getSpec(mini) : null;
+const href = spec?.ctaPage && hasRoute(spec.ctaPage, lang) ? route(spec.ctaPage, lang) : undefined;
+const numDefaults: Record<string, number> = {};
+for (const [k, v] of Object.entries(props)) if (typeof v === 'number') numDefaults[k] = v;
+/** Provider → page about it (links in the results). */
+const links = Object.fromEntries(Object.entries(PROVIDER_PAGE).filter(([, id]) => hasRoute(id, lang)).map(([p, id]) => [p, route(id, lang)]));
+const pfx = (s: string) => idPrefix ?? (primary ? s : `${s}2`);
+---
+{kind === 'mo' && <MoneyOrderFinder client:load idPrefix={pfx('mo')} primary={primary} amount={props.amount ?? 1500} pay={props.pay ?? 'cash'} focus={props.focus} mode={props.mode ?? 'buy'} links={links} />}
+{kind === 'hold' && <CheckHold client:load idPrefix={pfx('ch')} primary={primary} kind={props.kind ?? 'other'} channel={props.channel ?? 'mobile'} amount={props.amount ?? 1200} newAccount={props.newAccount ?? false} />}
+{kind === 'limits' && <LimitCompare client:load idPrefix={pfx('lc')} primary={primary} op={props.op ?? 'zelle'} amount={props.amount ?? 5000} focus={props.focus} links={links} />}
+{kind === 'fees' && <FeeCompare client:load idPrefix={pfx('fc')} primary={primary} op={props.op ?? 'cashiers'} amount={props.amount ?? 2500} focus={props.focus} links={links} />}
+{kind === 'tasks' && <TaskTabs client:load primary={primary} links={links} />}
+{mini && <MiniSim client:load kind={mini} href={href} defaults={numDefaults} primary={primary} idPrefix={idPrefix ?? (primary ? 'p' : 'm')} />}

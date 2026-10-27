@@ -1,8 +1,8 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://us-money-rules.example";
+export const SITE_URL = "https://usmoneyrules.com";
 export const SITE_NAMES: Record<string, string> = {"en": "US Money Rules"};
 // Partie du nom affichée en couleur dans l'en-tête (RECETTE §10.3), « » pour aucune.
-export const BRAND_ACCENT = "";
+export const BRAND_ACCENT = "Money";
 export const LANG_TAGS: Record<string, string> = {"en": "en-US"};
 export const OG_LOCALES: Record<string, string> = {"en": "en_US"};
 export const LOCALE_TAG = 'en-US';
@@ -18,7 +18,7 @@ export const AUTHOR_DESC: Record<string, string> = {"en": "Radif Partners reads 
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"en": ["Postal and retail money orders", "Cashier's checks and certified checks", "Funds availability under Regulation CC (12 CFR Part 229)", "Zelle, Venmo, Cash App and PayPal sending limits", "Mobile deposit and ATM withdrawal limits", "Early direct deposit timing"]};
-export const CONTACT_EMAIL = "contact@us-money-rules.example";
+export const CONTACT_EMAIL = "contact@usmoneyrules.com";
 export const THEME_COLOR = '#1F4E3D';
 export const LOGO_SYMBOL = 'MO';
 export const BING_VERIFY_CODE = '';

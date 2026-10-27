@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://us-money-rules.example/sitemap-index.xml
+Sitemap: https://usmoneyrules.com/sitemap-index.xml

@@ -71,10 +71,10 @@ export default function CheckHold({ idPrefix = 'ch', primary = false, kind = 'ot
           <SelectField id={id('c')} label="How" value={ch} onChange={(x) => setCh(x as Channel)} options={CHANNELS.map((x) => ({ value: x, label: CHANNEL_LABEL[x] }))} />
           <DateField id={id('d')} label="Day of the deposit" value={date} onChange={setDate} />
           <SelectField id={id('t')} label="Time of the deposit" value={String(mins)} onChange={(x) => setMins(Number(x))} options={TIMES.map((m) => ({ value: String(m), label: hm(m) }))} />
-          <SelectField id={id('cut')} label="Bank’s cutoff time" value={String(cut)} onChange={(x) => setCut(Number(x))} options={CUTOFFS.map((m) => ({ value: String(m), label: hm(m) }))} help={`Rule minimum: ${RC.cutoffTellerMin} at a branch, ${RC.cutoffAtmMin} at an ATM`} />
           <details className="sm:col-span-2 rounded-lg border border-navy-200 px-3 py-2">
-            <summary className="cursor-pointer text-sm font-medium text-navy-700">More situations: new account, other checks, exceptions</summary>
+            <summary className="cursor-pointer text-sm font-medium text-navy-700">More situations: bank cutoff time, new account, other checks, exceptions</summary>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          <div className="sm:col-span-2"><SelectField id={id('cut')} label="Bank’s cutoff time" value={String(cut)} onChange={(x) => setCut(Number(x))} options={CUTOFFS.map((m) => ({ value: String(m), label: hm(m) }))} help={`Rule minimum: ${RC.cutoffTellerMin} at a branch, ${RC.cutoffAtmMin} at an ATM`} /></div>
               <Toggle id={id('n')} label="Account opened under 30 days ago?" value={na ? '1' : '0'} onChange={(x) => setNa(x === '1')} options={[{ value: '0', label: 'No' }, { value: '1', label: 'Yes' }]} />
               <NumberField id={id('o')} label="Other checks deposited that day" value={other} onChange={setOther} unit="$" max={10_000_000} tag="en-US" />
               <SelectField id={id('x')} label="Exception the bank invokes" value={ex} onChange={(x) => setEx(x as Exception)} options={EXC} />
